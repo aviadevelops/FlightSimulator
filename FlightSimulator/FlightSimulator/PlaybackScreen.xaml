@@ -1,0 +1,28 @@
+﻿<Window x:Name="window_flighgear" x:Class="FlightSimulator.PlaybackScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlightSimulator"
+        mc:Ignorable="d"
+        Title="window2" Height="450" Width="800" Closing="window_flightgear_closing">
+    <Grid>
+        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center" Height="81" Margin="0,343,0,0" VerticalAlignment="Top" Width="780">
+            <Label Content="Play speed" HorizontalAlignment="Left" Height="29" Margin="423,9,0,0" VerticalAlignment="Top" Width="84" FontSize="14" FontWeight="Bold"/>
+        </Border>
+
+        <Button x:Name="btn_open" Content="Open" HorizontalAlignment="Left" Height="30" Margin="31,354,0,0" VerticalAlignment="Top" Width="86" Click="btn_open_click" FontWeight="Bold"/>
+
+        <Button x:Name="btn_back" Content="Back" HorizontalAlignment="Left" Height="30" Margin="190,354,0,0" VerticalAlignment="Top" Width="70" Click="btn_back_click" FontWeight="Bold"/>
+
+        <Button x:Name="btn_play" Content="Play" HorizontalAlignment="Left" Height="30" Margin="130,354,0,0" VerticalAlignment="Top" Width="50" Click="btn_play_click" FontWeight="Bold"/>
+
+        <Button x:Name="btn_foward" Content="Forward" HorizontalAlignment="Left" Height="30" Margin="350,354,0,0" VerticalAlignment="Top" Width="70" Click="btn_foward_click" FontWeight="Bold"/>
+
+        <Button x:Name="btn_pause" Content="Pause" HorizontalAlignment="Left" Height="30" Margin="270,354,0,0" VerticalAlignment="Top" Width="70" Click="btn_pause_click" FontWeight="Bold"/>
+
+        <Slider x:Name="slider_timesteps" HorizontalAlignment="Left" Height="22" Margin="31,389,0,0" VerticalAlignment="Top" Width="759" FontWeight="Bold" FontSize="14" ValueChanged="Slider_ValueChanged" Value="{Binding Time_Step}" TickFrequency="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="30" Margin="663,354,0,0" Stroke="Black" VerticalAlignment="Top" Width="112" Cursor=""/>
+        <TextBox x:Name="txtbox_change_speed" HorizontalAlignment="Left" Height="29" Margin="524,354,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontWeight="Bold" TextChanged="txtbox_change_speed_TextChanged" KeyDown="txtbox_change_speed_pressed"/>
+    </Grid>
+</Window>
