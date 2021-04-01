@@ -39,6 +39,8 @@ namespace FlightSimulator
                 objProcess.StartInfo.ArgumentList.Add("--fdm=null");
                 objProcess.Start();
 
+              
+
                 PlaybackScreen w = new PlaybackScreen();
 
                 w.Show();

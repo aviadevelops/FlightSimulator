@@ -7,7 +7,7 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="PlaybackScreen.xaml.cs">
+    <Compile Update="PlayControllerView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -15,7 +15,7 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="PlaybackScreen.xaml">
+    <Page Update="PlayControllerView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
