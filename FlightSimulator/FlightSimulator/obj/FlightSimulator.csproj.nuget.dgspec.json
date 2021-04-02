@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aviad\\OneDrive\\שולחן העבודה\\צבא\\עתודה\\בר אילן\\שנה ב\\סמסטר ב\\תכנות מתקדם 2\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj": {}
+    "C:\\Users\\TAL\\Desktop\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aviad\\OneDrive\\שולחן העבודה\\צבא\\עתודה\\בר אילן\\שנה ב\\סמסטר ב\\תכנות מתקדם 2\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj": {
+    "C:\\Users\\TAL\\Desktop\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aviad\\OneDrive\\שולחן העבודה\\צבא\\עתודה\\בר אילן\\שנה ב\\סמסטר ב\\תכנות מתקדם 2\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj",
+        "projectUniqueName": "C:\\Users\\TAL\\Desktop\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj",
         "projectName": "FlightSimulator",
-        "projectPath": "C:\\Users\\aviad\\OneDrive\\שולחן העבודה\\צבא\\עתודה\\בר אילן\\שנה ב\\סמסטר ב\\תכנות מתקדם 2\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj",
-        "packagesPath": "C:\\Users\\aviad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aviad\\OneDrive\\שולחן העבודה\\צבא\\עתודה\\בר אילן\\שנה ב\\סמסטר ב\\תכנות מתקדם 2\\FlightSimulator\\FlightSimulator\\obj\\",
+        "projectPath": "C:\\Users\\TAL\\Desktop\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj",
+        "packagesPath": "C:\\Users\\TAL\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TAL\\Desktop\\FlightSimulator\\FlightSimulator\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\aviad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TAL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -11,9 +11,8 @@ using System.Windows;
 
 namespace FlightSimulator 
 {
-    class PlayControllerViewModel : INotifyPropertyChanged
+    public class PlayControllerViewModel : INotifyPropertyChanged
     {
-    private string[] lines;
     bool hasStarted = false;
     private FlightSimulatorModel fsmodel;
     public event PropertyChangedEventHandler PropertyChanged;
@@ -38,7 +37,6 @@ namespace FlightSimulator
             {
                 notifyPropertyChanged("VM_" + e.PropertyName);
             };
-            fsmodel.connect();
         }
 
         public void notifyPropertyChanged(string propertyName)
@@ -51,14 +49,14 @@ namespace FlightSimulator
 
         public int get_csv_length()
         {
-            if (lines == null)
+            if (this.fsmodel.getLines() == null)
             {
                 return 0;
             }
-            return lines.Length;
+            return this.fsmodel.getLines().Length;
         }
 
-       public void load_csv()
+       public string[] load_csv()
         {
             string path = null;
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -68,17 +66,18 @@ namespace FlightSimulator
             {
                 string text = "Please choose a path";
                 MessageBox.Show(text);
-                return;
+                return null;
             }
             hasStarted = false;
             fsmodel.SetIsDone(true);
-            lines = File.ReadAllLines(path);
+            this.fsmodel.setLines(File.ReadAllLines(path));
             VM_CurrentTimeStep = 0;
+            return this.fsmodel.getLines(); // return lines[]
         }
 
         public void play()
         {
-            if (lines == null)
+            if (this.fsmodel.getLines() == null)
             {
                 return;
             }
@@ -93,7 +92,7 @@ namespace FlightSimulator
             if (!hasStarted)
             {
                 hasStarted = true;
-                var thread = new Thread(() => fsmodel.sendInLoop(lines, max));
+                var thread = new Thread(() => fsmodel.sendInLoop(this.fsmodel.getLines(), max));
                 thread.Start();
             }
 
@@ -121,5 +120,11 @@ namespace FlightSimulator
         {
             fsmodel.terminateConnection();
         }
+
+        public void sendPlayBackPathToModel(string path)
+        {
+            this.fsmodel.setPlayBackPath(path);
+        }
+
     }
 }

@@ -19,18 +19,40 @@ namespace FlightSimulator
     public partial class PlaybackScreen : Window
     {
         private PlayControllerViewModel playVM;
-        public PlaybackScreen()
+
+        public PlaybackScreen(string playBackPath)
         {
             InitializeComponent();
-            playVM = new PlayControllerViewModel(new FlightSimulatorModel());
-            DataContext = playVM;
+            VMContainer v = new VMContainer();
+            DataContext = v;
+            playVM = v.VmPlayController;
+            JoystickVM = v.VmJoystick;
+            playVM.sendPlayBackPathToModel(playBackPath);
         }
 
         private void btn_open_click(object sender, RoutedEventArgs e)
         {
-            playVM.load_csv();
+            if(playVM.load_csv() == null)
+            {
+                return;
+            }
             this.slider_timesteps.Minimum = 0;
             this.slider_timesteps.Maximum = playVM.get_csv_length();
+
+            JoystickVM.initModelIndex();
+            this.slider_rudder.Minimum = JoystickVM.rudderMin();
+            this.slider_rudder.Maximum = JoystickVM.rudderMax();
+            if (this.slider_rudder.Maximum == this.slider_rudder.Minimum)
+            {
+                this.slider_rudder.Maximum = this.slider_rudder.Minimum + 1;
+            }
+
+            this.slider_throttle.Minimum = JoystickVM.ThrottleMin();
+            this.slider_throttle.Maximum = JoystickVM.ThrottleMax();
+            if (this.slider_throttle.Maximum == this.slider_throttle.Minimum)
+            {
+                this.slider_throttle.Maximum = this.slider_throttle.Minimum + 1;
+            }
         }
 
        

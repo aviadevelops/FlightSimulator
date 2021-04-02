@@ -30,6 +30,10 @@ namespace FlightSimulator
                 objProcess.StartInfo.FileName = path;
                 objProcess.StartInfo.WorkingDirectory = path.Substring(0, path.LastIndexOf('\\'));
 
+                string playBackPath = path.Substring(0, path.LastIndexOf("\\bin"));
+                playBackPath += "\\data\\Protocol\\playback_small.xml";
+
+
                 //string playBackPath = path + "\\data\\Protocol";
                 //File.Copy(System.IO.Path.Combine(Directory.GetCurrentDirectory(), "playback_small.xml"), System.IO.Path.Combine(playBackPath, "playback_small.xml"));
                 //File.Delete("playback_small.xml");
@@ -41,7 +45,7 @@ namespace FlightSimulator
 
               
 
-                PlaybackScreen w = new PlaybackScreen();
+                PlaybackScreen w = new PlaybackScreen(playBackPath);
 
                 w.Show();
                 this.Close();

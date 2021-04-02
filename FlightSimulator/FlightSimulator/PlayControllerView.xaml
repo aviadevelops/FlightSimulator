@@ -21,8 +21,22 @@
 
         <Button x:Name="btn_pause" Content="Pause" HorizontalAlignment="Left" Height="30" Margin="270,354,0,0" VerticalAlignment="Top" Width="70" Click="btn_pause_click" FontWeight="Bold"/>
 
-        <Slider Value = "{Binding VM_CurrentTimeStep}" x:Name="slider_timesteps" HorizontalAlignment="Left" Height="22" Margin="16,389,0,0" VerticalAlignment="Top" Width="759" FontWeight="Bold" FontSize="14" ValueChanged="Slider_ValueChanged" TickFrequency="1"/>
-        <Label Content = "{Binding VM_CurrentTimeSpan}" x:Name="label_display_time" HorizontalAlignment="Left" Height="30" Margin="663,354,0,0"  VerticalAlignment="Top" Width="112" Cursor="" FontWeight="Bold"/>
+        <Slider Value = "{Binding VmPlayController.VM_CurrentTimeStep}" x:Name="slider_timesteps" HorizontalAlignment="Left" Height="22" Margin="16,389,0,0" VerticalAlignment="Top" Width="759" FontWeight="Bold" FontSize="14" ValueChanged="Slider_ValueChanged" TickFrequency="1"/>
+        <Label Content = "{Binding VmPlayController.VM_CurrentTimeSpan}" x:Name="label_display_time" HorizontalAlignment="Left" Height="30" Margin="663,354,0,0"  VerticalAlignment="Top" Width="112" Cursor="" FontWeight="Bold"/>
         <TextBox x:Name="txtbox_change_speed" HorizontalAlignment="Left" Height="29" Margin="524,354,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontWeight="Bold" TextChanged="txtbox_change_speed_TextChanged" KeyDown="txtbox_change_speed_pressed"/>
+        <Rectangle HorizontalAlignment="Left" Height="173" Margin="510,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="290"/>
+        <Ellipse HorizontalAlignment="Left" Height="131" Margin="586,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="138"/>
+        <Slider Value = "{Binding VmJoystick.VM_Rudder}" x:Name="slider_rudder" HorizontalAlignment="Left" Height="23" Margin="569,150,0,0" VerticalAlignment="Top" Width="172" TickFrequency="1"/>
+        <Slider Value = "{Binding VmJoystick.VM_Throttle}" x:Name="slider_throttle" HorizontalAlignment="Left" Height="23" Margin="447,78,0,0" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.5,0.5" TickFrequency="1">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="270.334"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
+        <Ellipse HorizontalAlignment="Left" Height="59" Margin="626,46,0,0" Stroke="Black" VerticalAlignment="Top" Width="58"/>
     </Grid>
 </Window>
