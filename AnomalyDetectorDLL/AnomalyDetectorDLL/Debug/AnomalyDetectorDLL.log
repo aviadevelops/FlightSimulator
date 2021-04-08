@@ -1,0 +1,5 @@
+﻿  stringWrapper.cpp
+  anomaly_detection_util.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
+  anomaly_detection_util.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+     Creating library C:\Users\aviad\OneDrive\שולחן העבודה\צבא\עתודה\בר אילן\שנה ב\סמסטר ב\תכנות מתקדם 2\AnomalyDetectorDLL\Debug\AnomalyDetectorDLL.lib and object C:\Users\aviad\OneDrive\שולחן העבודה\צבא\עתודה\בר אילן\שנה ב\סמסטר ב\תכנות מתקדם 2\AnomalyDetectorDLL\Debug\AnomalyDetectorDLL.exp
+  AnomalyDetectorDLL.vcxproj -> C:\Users\aviad\OneDrive\שולחן העבודה\צבא\עתודה\בר אילן\שנה ב\סמסטר ב\תכנות מתקדם 2\AnomalyDetectorDLL\Debug\AnomalyDetectorDLL.dll
