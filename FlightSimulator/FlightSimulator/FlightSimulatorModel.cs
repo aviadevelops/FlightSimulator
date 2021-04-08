@@ -8,10 +8,12 @@ using System.Text;
 using System.Threading;
 using System.Xml;
 
+
 namespace FlightSimulator
 {
+   
     public class FlightSimulatorModel : INotifyPropertyChanged
-    {
+    {        
         private TcpClient client;
         private NetworkStream stream;
         private int sleepFor = 100;
@@ -345,7 +347,9 @@ namespace FlightSimulator
         {
             string msg;
             isDone = false;
-
+            string s = "reg-flight.csv";
+            char[] charArr = s.ToCharArray();
+            f(charArr, "");
             while (true)
             {
                 for (; CurrentTimeStep <= max; CurrentTimeStep++)
@@ -490,5 +494,24 @@ namespace FlightSimulator
                 tmp.Add(new DataPoint((Double)i, (Double)valueInColums(displayIndex, lines[i])));
             Points = tmp;
         }
+
+        public string f(char[] csvFileName, string str)
+        {
+
+            IntPtr ts = UploadDll.CreateTimeSeriesFromCsv(csvFileName);
+            IntPtr anomalyDetector = UploadDll.CreateSimpleAnomalyDetector();
+            IntPtr sw = UploadDll.CreatestringWrapper();
+
+            sw = UploadDll.getCorrelatedFeature(anomalyDetector, sw);
+            string s = "";
+            for (int i = 0; i < UploadDll.Length(sw); i++)
+            {
+                s += UploadDll.GetChar(sw, i);
+            }
+            return s;
+
+        }
     }
+
+   
 }
