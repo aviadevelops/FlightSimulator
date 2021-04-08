@@ -1,12 +1,8 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace FlightSimulator 
@@ -17,10 +13,11 @@ namespace FlightSimulator
     private FlightSimulatorModel fsmodel;
     public event PropertyChangedEventHandler PropertyChanged;
 
-    public int VM_CurrentTimeStep
+        public int VM_CurrentTimeStep
         {
             get { return fsmodel.CurrentTimeStep; }
-            set { fsmodel.CurrentTimeStep = value;
+            set { 
+                fsmodel.CurrentTimeStep = value;
                   }
         }
 
@@ -28,7 +25,7 @@ namespace FlightSimulator
         {
             get { return fsmodel.CurrentTimeSpan; }
             set { fsmodel.CurrentTimeSpan = value; }    
-        }
+        } 
 
         public PlayControllerViewModel(FlightSimulatorModel fsmodel)
         {
@@ -126,5 +123,9 @@ namespace FlightSimulator
             this.fsmodel.setPlayBackPath(path);
         }
 
+        public void displayGraph(string clicked)
+        {
+            fsmodel.setDisplayIndex(clicked); 
+        }
     }
 }

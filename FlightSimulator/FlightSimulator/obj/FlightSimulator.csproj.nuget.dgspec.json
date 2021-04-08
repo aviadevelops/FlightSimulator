@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TAL\\Desktop\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj": {}
+    "C:\\Users\\aviad\\OneDrive\\מסמכים\\GitHub\\FlightSimulator\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TAL\\Desktop\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj": {
+    "C:\\Users\\aviad\\OneDrive\\מסמכים\\GitHub\\FlightSimulator\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TAL\\Desktop\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj",
+        "projectUniqueName": "C:\\Users\\aviad\\OneDrive\\מסמכים\\GitHub\\FlightSimulator\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj",
         "projectName": "FlightSimulator",
-        "projectPath": "C:\\Users\\TAL\\Desktop\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj",
-        "packagesPath": "C:\\Users\\TAL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TAL\\Desktop\\FlightSimulator\\FlightSimulator\\obj\\",
+        "projectPath": "C:\\Users\\aviad\\OneDrive\\מסמכים\\GitHub\\FlightSimulator\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj",
+        "packagesPath": "C:\\Users\\aviad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aviad\\OneDrive\\מסמכים\\GitHub\\FlightSimulator\\FlightSimulator\\FlightSimulator\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\TAL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aviad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +42,12 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "OxyPlot.Wpf": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

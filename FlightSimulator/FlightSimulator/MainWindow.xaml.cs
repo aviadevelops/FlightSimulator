@@ -1,10 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Diagnostics;
-using System.IO;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading;
 using System.Windows;
 
 namespace FlightSimulator
@@ -18,6 +14,8 @@ namespace FlightSimulator
         public MainWindow()
         {
             InitializeComponent();
+            //this.WindowStyle = WindowStyle.None;
+            this.ResizeMode = ResizeMode.NoResize;
         }
 
         private void btn_openApp_Click(object sender, RoutedEventArgs e)
