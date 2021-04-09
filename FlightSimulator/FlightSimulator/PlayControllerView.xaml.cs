@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 
 namespace FlightSimulator
 {
@@ -13,13 +12,14 @@ namespace FlightSimulator
     public partial class PlaybackScreen : Window
     {
         private PlayControllerViewModel playVM;
-        private bool dragStarted = false;
+        private bool loadedLearnable = false;
 
         public PlaybackScreen(string playBackPath)
         {
             InitializeComponent();
             //this.WindowStyle = WindowStyle.None;
             this.ResizeMode = ResizeMode.NoResize;
+            
             VMContainer v = new VMContainer();
             DataContext = v;
             playVM = v.VmPlayController;
@@ -28,25 +28,33 @@ namespace FlightSimulator
             playVM.sendPlayBackPathToModel(playBackPath);
         }
 
-        private void btn_open_click(object sender, RoutedEventArgs e)
+        private void setValues()
         {
-            if (playVM.load_csv() == null)
-            {
-                return;
-            }
             this.slider_timesteps.Minimum = 0;
-            this.slider_timesteps.Maximum = playVM.get_csv_length();
-
-            JoystickVM.initModelIndex();
+            this.slider_timesteps.Maximum = 5;
             this.slider_rudder.Minimum = -1;
             this.slider_rudder.Maximum = 1;
 
             this.slider_throttle.Minimum = 0;
             this.slider_throttle.Maximum = 1;
 
+            this.slider_timesteps.Maximum = playVM.get_csv_length();
+
             this.JoystickVM.setBigCanvasWidthAndHeight((float)(float)this.JoystickBigCanvas.ActualWidth, (float)this.JoystickBigCanvas.ActualHeight);
             this.JoystickVM.setLittleCanvasWidthAndHeight((float)(float)this.JoystickLittleEllipse.ActualWidth, (float)this.JoystickLittleEllipse.ActualHeight);
+        }
 
+        private void btn_open_train_click(object sender, RoutedEventArgs e)
+        {
+            playVM.load_csv(true);
+            playVM.VM_CurrentTimeStep = 0;
+        }
+
+        private void btn_open_test_click(object sender, RoutedEventArgs e)
+        {
+            playVM.load_csv(false);
+            playVM.VM_CurrentTimeStep = 0;
+            setValues();
         }
 
 

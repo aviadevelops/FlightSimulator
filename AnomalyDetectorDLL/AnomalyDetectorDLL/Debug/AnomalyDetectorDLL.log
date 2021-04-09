@@ -1,5 +1,26 @@
-﻿  stringWrapper.cpp
+﻿  pch.cpp
+  anomaly_detection_util.cpp
+C:\Users\Arthur\Documents\GitHub\FlightSimulator\AnomalyDetectorDLL\AnomalyDetectorDLL\anomaly_detection_util.cpp(23,25): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Arthur\Documents\GitHub\FlightSimulator\AnomalyDetectorDLL\AnomalyDetectorDLL\anomaly_detection_util.cpp(25,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Arthur\Documents\GitHub\FlightSimulator\AnomalyDetectorDLL\AnomalyDetectorDLL\anomaly_detection_util.cpp(44,28): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  dllmain.cpp
+  SimpleAnomalyDetector.cpp
+C:\Users\Arthur\Documents\GitHub\FlightSimulator\AnomalyDetectorDLL\AnomalyDetectorDLL\SimpleAnomalyDetector.cpp(7,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Arthur\Documents\GitHub\FlightSimulator\AnomalyDetectorDLL\AnomalyDetectorDLL\SimpleAnomalyDetector.cpp(14,26): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\Arthur\Documents\GitHub\FlightSimulator\AnomalyDetectorDLL\AnomalyDetectorDLL\SimpleAnomalyDetector.cpp(35,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Arthur\Documents\GitHub\FlightSimulator\AnomalyDetectorDLL\AnomalyDetectorDLL\SimpleAnomalyDetector.cpp(42,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Arthur\Documents\GitHub\FlightSimulator\AnomalyDetectorDLL\AnomalyDetectorDLL\SimpleAnomalyDetector.cpp(59,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Arthur\Documents\GitHub\FlightSimulator\AnomalyDetectorDLL\AnomalyDetectorDLL\SimpleAnomalyDetector.cpp(64,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Arthur\Documents\GitHub\FlightSimulator\AnomalyDetectorDLL\AnomalyDetectorDLL\SimpleAnomalyDetector.cpp(99,35): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Arthur\Documents\GitHub\FlightSimulator\AnomalyDetectorDLL\AnomalyDetectorDLL\SimpleAnomalyDetector.cpp(109,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Arthur\Documents\GitHub\FlightSimulator\AnomalyDetectorDLL\AnomalyDetectorDLL\SimpleAnomalyDetector.cpp(114,27): warning C4018: '<': signed/unsigned mismatch
+  stringWrapper.cpp
+  timeseries.cpp
+C:\Users\Arthur\Documents\GitHub\FlightSimulator\AnomalyDetectorDLL\AnomalyDetectorDLL\timeseries.cpp(29,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Arthur\Documents\GitHub\FlightSimulator\AnomalyDetectorDLL\AnomalyDetectorDLL\timeseries.cpp(44,23): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
   anomaly_detection_util.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
   anomaly_detection_util.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
-     Creating library C:\Users\aviad\OneDrive\שולחן העבודה\צבא\עתודה\בר אילן\שנה ב\סמסטר ב\תכנות מתקדם 2\AnomalyDetectorDLL\Debug\AnomalyDetectorDLL.lib and object C:\Users\aviad\OneDrive\שולחן העבודה\צבא\עתודה\בר אילן\שנה ב\סמסטר ב\תכנות מתקדם 2\AnomalyDetectorDLL\Debug\AnomalyDetectorDLL.exp
-  AnomalyDetectorDLL.vcxproj -> C:\Users\aviad\OneDrive\שולחן העבודה\צבא\עתודה\בר אילן\שנה ב\סמסטר ב\תכנות מתקדם 2\AnomalyDetectorDLL\Debug\AnomalyDetectorDLL.dll
+     Creating library C:\Users\Arthur\Documents\GitHub\FlightSimulator\AnomalyDetectorDLL\Debug\AnomalyDetectorDLL.lib and object C:\Users\Arthur\Documents\GitHub\FlightSimulator\AnomalyDetectorDLL\Debug\AnomalyDetectorDLL.exp
+  AnomalyDetectorDLL.vcxproj -> C:\Users\Arthur\Documents\GitHub\FlightSimulator\AnomalyDetectorDLL\Debug\AnomalyDetectorDLL.dll

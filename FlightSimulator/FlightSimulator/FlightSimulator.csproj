@@ -4,17 +4,10 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
-    <Platforms>AnyCPU;x86</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="OxyPlot.Wpf" Version="2.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="AnomalyDetectorDLL">
-      <HintPath>..\..\..\..\..\שולחן העבודה\צבא\עתודה\בר אילן\שנה ב\סמסטר ב\תכנות מתקדם 2\AnomalyDetectorDLL\Debug\AnomalyDetectorDLL.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>

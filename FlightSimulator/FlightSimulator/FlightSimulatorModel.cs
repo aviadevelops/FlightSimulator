@@ -2,29 +2,31 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Xml;
 
-
 namespace FlightSimulator
 {
-   
     public class FlightSimulatorModel : INotifyPropertyChanged
-    {        
+    {
         private TcpClient client;
         private NetworkStream stream;
         private int sleepFor = 100;
         private int currentTimeStep = 0;
         private TimeSpan currentTimeSpan;
+        private SimpleAnomalyDetector anomalyDetector;
         private bool isPaused = true;
         private bool isDone = false;
+        private bool displayPoints = false;
         public event PropertyChangedEventHandler PropertyChanged;
         private float rudder = 0;
         private float throttle = 0;
-        private string[] lines;
+        private string[] testLines;
+        private string[] trainLines;
         private int rudderIndex = 0;
         private int throttleIndex = 0;
         private float altimeter = 0;
@@ -37,15 +39,22 @@ namespace FlightSimulator
         private float elevator;
         private int aileronIndex = 0;
         private int elevatorIndex = 0;
-        private int displayIndex = 0;
+        private int[] displayIndexes = { 0, 0, 0 };
+        private string trainCSVFile = "";
+        private string testCSVFile = "";
         private string playBackPath;
+        private string graphNameLeft = "Graph";
+        private string graphNameRight = "Graph";
+        private string graphNameBottom = "Graph";
         public float BigEllipseCanvasWidth;
         public float BigEllipseCanvasHeight;
         public float LittleEllipseCanvasWidth;
         public float LittleEllipseCanvasHeight;
-        public string graphName = "Graph";
         private Dictionary<string, int> statIndecies = new Dictionary<string, int>();
-        private List<DataPoint> points = new List<DataPoint>();
+        private List<DataPoint> pointsLeft = new List<DataPoint>();
+        private List<DataPoint> pointsRight = new List<DataPoint>();
+        private List<DataPoint> pointsBottom = new List<DataPoint>();
+        private List<DataPoint> pointsBottomLine = new List<DataPoint>();
         private List<string> listBox = new List<string>();
 
         public List<string> ListBox
@@ -55,25 +64,101 @@ namespace FlightSimulator
         }
 
 
-        public IList<DataPoint> Points
+        public IList<DataPoint> PointsLeft
         {
-            get { return this.points; }
+            get { return this.pointsLeft; }
             set {
-                this.points = new List<DataPoint>(value);
-                notifyPropertyChanged("Points"); 
+                this.pointsLeft = new List<DataPoint>(value);
+                notifyPropertyChanged("PointsLeft"); 
             }
         }
 
-        public string GraphName
+        public IList<DataPoint> PointsRight
         {
-            get { return this.graphName; }
-            set {
-                this.graphName = value;
-                notifyPropertyChanged("GraphName"); 
+            get { return this.pointsRight; }
+            set
+            {
+                this.pointsRight = new List<DataPoint>(value);
+                notifyPropertyChanged("PointsRight");
             }
         }
 
+        public IList<DataPoint> PointsBottomLine
+        {
+            get { return this.pointsBottomLine; }
+            set
+            {
+                this.pointsBottomLine = new List<DataPoint>(value);
+                notifyPropertyChanged("PointsBottomLine");
+            }
+        }
 
+        public IList<DataPoint> PointsBottom
+        {
+            get { return this.pointsBottom; }
+            set
+            {
+                this.pointsBottom = new List<DataPoint>(value);
+                notifyPropertyChanged("PointsBottom");
+            }
+        }
+
+        public string GraphNameLeft
+        {
+            get { return this.graphNameLeft; }
+            set {
+                this.graphNameLeft = value;
+                notifyPropertyChanged("GraphNameLeft"); 
+            }
+        }
+
+        public string GraphNameRight
+        {
+            get { return this.graphNameRight; }
+            set
+            {
+                this.graphNameRight = value;
+                notifyPropertyChanged("GraphNameRight");
+            }
+        }
+
+        public string GraphNameBottom
+        {
+            get { return this.graphNameBottom; }
+            set
+            {
+                this.graphNameBottom = value;
+                notifyPropertyChanged("GraphNameBottom");
+            }
+        }
+
+        public bool loadCsv(string path, bool isTrain)
+        {
+            try
+            {
+                if (isTrain)
+                {
+                    trainCSVFile = path;
+                    trainLines = File.ReadAllLines(path);
+                    train();
+
+                }
+                else
+                {
+                    if (trainCSVFile == "")
+                        return false;
+                    isDone = true;
+                    testLines = File.ReadAllLines(path);
+                    CurrentTimeStep = 0;
+                    initIndex();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         public int getRudderIndex()
         {
@@ -88,16 +173,21 @@ namespace FlightSimulator
         {
             this.playBackPath = playBackPath;
             this.setListBox();
-            GraphName = listBox[0];
         }
-        public string[] getLines()
+        // 1 train, 2 test
+        public string[] getLines(int num)
         {
-            return this.lines;
+            if (num == 1)
+                return this.trainLines; 
+            return this.testLines;
         }
 
-        public void setLines(string[] newLines)
+        public void setLines(string[] newLines, int num)
         {
-            this.lines = newLines;
+            if (num == 1)
+                this.trainLines = newLines;
+            else
+                this.testLines = newLines;
         }
 
         public void SetIsPaused(bool s)
@@ -289,7 +379,7 @@ namespace FlightSimulator
         }
 
 
-        public float valueInColums(int index, string line)
+        public float valueInColumn(int index, string line)
         {
             string[] values = line.Split(",");
             return float.Parse(values[index]);
@@ -301,7 +391,7 @@ namespace FlightSimulator
             float max = float.NegativeInfinity;
             foreach (string line in lines)
             {
-                x = this.valueInColums(index, line);
+                x = this.valueInColumn(index, line);
                 if (max < x)
                 {
                     max = x;
@@ -316,7 +406,7 @@ namespace FlightSimulator
             float min = float.PositiveInfinity;
             foreach (string line in lines)
             {
-                x = this.valueInColums(index, line);
+                x = this.valueInColumn(index, line);
                 if (min > x)
                 {
                     min = x;
@@ -328,18 +418,18 @@ namespace FlightSimulator
 
         public void initIndex()
         {
-            this.rudderIndex = getIndex("rudder");
-            this.throttleIndex = getIndex("throttle");
-            this.aileronIndex = getIndex("aileron");
-            this.elevatorIndex = getIndex("elevator");
+            this.rudderIndex = getIndexFromXML("rudder");
+            this.throttleIndex = getIndexFromXML("throttle");
+            this.aileronIndex = getIndexFromXML("aileron");
+            this.elevatorIndex = getIndexFromXML("elevator");
 
 
-            statIndecies["altimeter"] = getIndex("altimeter_indicated-altitude-ft");
-            statIndecies["airspeed"] = getIndex("airspeed-kt");
-            statIndecies["heading_deg"] = getIndex("heading-deg");
-            statIndecies["pitch"] = getIndex("pitch-deg");
-            statIndecies["roll"] = getIndex("roll-deg");
-            statIndecies["yaw"] = getIndex("side-slip-deg");
+            statIndecies["altimeter"] = getIndexFromXML("altimeter_indicated-altitude-ft");
+            statIndecies["airspeed"] = getIndexFromXML("airspeed-kt");
+            statIndecies["heading_deg"] = getIndexFromXML("heading-deg");
+            statIndecies["pitch"] = getIndexFromXML("pitch-deg");
+            statIndecies["roll"] = getIndexFromXML("roll-deg");
+            statIndecies["yaw"] = getIndexFromXML("side-slip-deg");
         }
 
 
@@ -347,9 +437,8 @@ namespace FlightSimulator
         {
             string msg;
             isDone = false;
-            string s = "reg-flight.csv";
-            char[] charArr = s.ToCharArray();
-            f(charArr, "");
+            setGraphDisplayIndex(ListBox[0]);
+
             while (true)
             {
                 for (; CurrentTimeStep <= max; CurrentTimeStep++)
@@ -360,8 +449,13 @@ namespace FlightSimulator
                         break;
 
                     if (CurrentTimeStep % 10 == 0)
-                        setCurrentPoint();
-
+                    {
+                        setCurrentPoint(0);
+                        setCurrentPoint(1);
+                        if (displayPoints)
+                            displayBottomPoints();
+                    }
+                        
                     changeStats(lines[currentTimeStep]);
 
                     msg = lines[CurrentTimeStep] + "\n";
@@ -383,7 +477,7 @@ namespace FlightSimulator
         }
 
 
-        public int getIndex(string value)
+        public int getIndexFromXML(string value)
         {
             int counter = 0;
             XmlDocument doc = new XmlDocument();
@@ -405,28 +499,24 @@ namespace FlightSimulator
                         {
                             counter++;
                         }
-
                     }
-
-
                 }
-
             }
             return counter;
         }
 
         private void changeStats(string line)
         {
-            Rudder = this.valueInColums(this.rudderIndex, line);
-            Throttle = this.valueInColums(this.throttleIndex, line);
-            Aileron = this.valueInColums(this.aileronIndex, line);
-            Elevator = this.valueInColums(this.elevatorIndex, line);
-            Altimeter = valueInColums(statIndecies["altimeter"], line);
-            Airspeed = valueInColums(statIndecies["airspeed"], line);
-            Heading_deg = valueInColums(statIndecies["heading_deg"], line);
-            Pitch = valueInColums(statIndecies["pitch"], line);
-            Roll = valueInColums(statIndecies["roll"], line);
-            Yaw = valueInColums(statIndecies["yaw"], line);
+            Rudder = this.valueInColumn(this.rudderIndex, line);
+            Throttle = this.valueInColumn(this.throttleIndex, line);
+            Aileron = this.valueInColumn(this.aileronIndex, line);
+            Elevator = this.valueInColumn(this.elevatorIndex, line);
+            Altimeter = valueInColumn(statIndecies["altimeter"], line);
+            Airspeed = valueInColumn(statIndecies["airspeed"], line);
+            Heading_deg = valueInColumn(statIndecies["heading_deg"], line);
+            Pitch = valueInColumn(statIndecies["pitch"], line);
+            Roll = valueInColumn(statIndecies["roll"], line);
+            Yaw = valueInColumn(statIndecies["yaw"], line);
         }
 
 
@@ -439,7 +529,7 @@ namespace FlightSimulator
             {
                 if (this.listBox.Contains(node["name"].InnerText))
                 {
-                    this.listBox.Add(node["name"].InnerText + "-" + this.countInstances(node["name"].InnerText));
+                    this.listBox.Add(node["name"].InnerText + "-" + this.countInstancesInXML(node["name"].InnerText));
                 } else
                 {
                     this.listBox.Add(node["name"].InnerText);
@@ -448,7 +538,7 @@ namespace FlightSimulator
             }
         }
 
-        private int countInstances(string value)
+        private int countInstancesInXML(string value)
         {
             int x = 1;
             for (int i = 0; i < this.listBox.Count(); i++)
@@ -459,59 +549,121 @@ namespace FlightSimulator
                 }
             }
             return x;
-           
         }
 
-        private int findLine(string line)
+        public int getIndexFromListBox(string s)
         {
-            return getIndex(line);
-        }
-
-        public void setDisplayIndex(string line)
-        {
-            
-            Points = new List<DataPoint>();
-            GraphName = line;
-            if (countInstances(line) > 1) {
-                int count;
-                for (count = 0; count < ListBox.Count; count++)
-                {
-                    if (ListBox[count] == line)
-                        break;
-                }
-                this.displayIndex = count;
+            int count, size = ListBox.Count();
+            for (count = 0; count < size; count++)
+            {
+                if (ListBox[count] == s)
+                    break;
             }
-            else
-                this.displayIndex = findLine(line);
+            return count;
         }
 
-        //private static List<DataPoint> temporaryPoints = new List<DataPoint>();
+        public void setGraphDisplayIndex(string line)
+        {
+            PointsLeft = new List<DataPoint>();
+            GraphNameLeft = line;
+            this.displayIndexes[0] = getIndexFromListBox(line);
+            if (trainLines != null)
+            {
+                findMaxCorrelatedFeature(line);
+                displayBottomGraph(line);
+            }  
+        }
 
-        public void setCurrentPoint()
+        public void findMaxCorrelatedFeature(string property)
+        {
+            PointsRight = new List<DataPoint>();
+            string maxCorralated = anomalyDetector.findMaxCorralatedFeature(property);
+            if (maxCorralated == "CF Unavailable")
+            {
+                PointsRight = new List<DataPoint>();
+                return;
+            }
+            GraphNameRight = maxCorralated;
+            this.displayIndexes[1] = getIndexFromListBox(maxCorralated);
+        }
+
+        public void setCurrentPoint(int indicator)
         {
             List<DataPoint> tmp = new List<DataPoint>();
             for (int i = 0; i <= currentTimeStep; i++)
-                tmp.Add(new DataPoint((Double)i, (Double)valueInColums(displayIndex, lines[i])));
-            Points = tmp;
+                tmp.Add(new DataPoint((Double)i, (Double)valueInColumn(displayIndexes[indicator], testLines[i])));
+            if (indicator == 0)
+                PointsLeft = tmp;
+            else if (indicator == 1 && graphNameRight != "CF Unavailable")
+                PointsRight = tmp;
         }
 
-        public string f(char[] csvFileName, string str)
+        public void setPathToFile(int file, string path)
         {
+            if (file == 1)
+                this.trainCSVFile = path;
+            else if (file == 2)
+                this.testCSVFile = path;
+        }
 
-            IntPtr ts = UploadDll.CreateTimeSeriesFromCsv(csvFileName);
-            IntPtr anomalyDetector = UploadDll.CreateSimpleAnomalyDetector();
-            IntPtr sw = UploadDll.CreatestringWrapper();
-
-            sw = UploadDll.getCorrelatedFeature(anomalyDetector, sw);
-            string s = "";
-            for (int i = 0; i < UploadDll.Length(sw); i++)
+        public List<float> getColumn(int index)
+        {
+            List<float> column = new List<float>();
+            for (int i = 0; i < trainLines.Length; i++)
             {
-                s += UploadDll.GetChar(sw, i);
+                column.Add(valueInColumn(index, trainLines[i]));
             }
-            return s;
+            return column;
+        }
 
+
+        public void train()
+        {
+            anomalyDetector = new SimpleAnomalyDetector(this, (float)0.5);
+            anomalyDetector.learnNormal();
+        }
+
+
+        public void displayBottomPoints() 
+        {
+            List<DataPoint> Points = new List<DataPoint>();
+            float x, y;
+            for (int i = currentTimeStep; i >= 0 && i > currentTimeStep - 300; i--)
+            {
+                x = valueInColumn(displayIndexes[0], testLines[i]);
+                y = valueInColumn(displayIndexes[1], testLines[i]);
+                Points.Add(new DataPoint((Double)x, (Double)y));
+            }
+            PointsBottom = Points;
+        }
+
+        public void displayBottomGraph(string proprety)
+        {
+            List<float> data = anomalyDetector.returnLineDetails(proprety);
+            AnomalyDetectionUtil.Line linearReg;
+            List<DataPoint> Points = new List<DataPoint>();
+            try
+            {
+                linearReg = new AnomalyDetectionUtil.Line(data[0], data[1]);
+                GraphNameBottom = "Linear Regression";
+            } 
+            catch (Exception)
+            {
+                GraphNameBottom = "ERR: Linear Regression Unavailable";
+                GraphNameRight = "CF Unavailable";
+                PointsBottom = new List<DataPoint>();
+                PointsBottomLine = new List<DataPoint>();
+                displayPoints = false;
+                return;
+            }
+            // data[0] is a, data[1] is b
+            // create graph of linear line with starting time step and last time step
+            float startX = findMin(testLines, displayIndexes[0]);
+            float startY = findMax(testLines, displayIndexes[0]);
+            Points.Add(new DataPoint((Double)startX, (Double)linearReg.f(startX)));
+            Points.Add(new DataPoint((Double)startY, (Double)linearReg.f(startY)));
+            PointsBottomLine = Points;
+            displayPoints = true;
         }
     }
-
-   
 }

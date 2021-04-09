@@ -1,1 +1,2 @@
 C:\Users\aviad\OneDrive\שולחן העבודה\צבא\עתודה\בר אילן\שנה ב\סמסטר ב\תכנות מתקדם 2\AnomalyDetectorDLL\AnomalyDetectorDLL\Debug\AnomalyDetectorDLL.vcxprojAssemblyReference.cache
+C:\Users\Arthur\Documents\GitHub\FlightSimulator\AnomalyDetectorDLL\AnomalyDetectorDLL\Debug\AnomalyDetectorDLL.vcxprojAssemblyReference.cache

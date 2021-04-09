@@ -6,25 +6,27 @@
         xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:local="clr-namespace:FlightSimulator"
         mc:Ignorable="d"
-        Title="Flight Simulator" Height="450" Width="820" Closing="window_flightgear_closing">
+        Title="Flight Simulator" Height="465" Width="820" Closing="window_flightgear_closing" Background="White">
     <Grid>
-        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center" Height="81" Margin="0,343,0,0" VerticalAlignment="Top" Width="780">
-            <Label Content="Play speed" HorizontalAlignment="Left" Height="29" Margin="423,9,0,0" VerticalAlignment="Top" Width="84" FontSize="14" FontWeight="Bold"/>
+        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center" Height="81" Margin="0,352,0,0" VerticalAlignment="Top" Width="780">
+            <Label Content="Play speed" HorizontalAlignment="Left" Height="28" Margin="464,19,0,0" VerticalAlignment="Top" Width="84" FontSize="14" FontWeight="Bold" RenderTransformOrigin="-0.355,0.684"/>
         </Border>
 
-        <Button x:Name="btn_open" Content="Open" HorizontalAlignment="Left" Height="30" Margin="31,354,0,0" VerticalAlignment="Top" Width="86" Click="btn_open_click" FontWeight="Bold"/>
+        <Button x:Name="btn_open_train" Content="Load new train flight CSV" HorizontalAlignment="Left" Height="24" Margin="31,358,0,0" VerticalAlignment="Top" Width="127" Click="btn_open_train_click" FontWeight="Bold" FontSize="10"/>
 
-        <Button x:Name="btn_back" Content="Back" HorizontalAlignment="Left" Height="30" Margin="190,354,0,0" VerticalAlignment="Top" Width="70" Click="btn_back_click" FontWeight="Bold"/>
+        <Button x:Name="btn_open_test" Content="Load new flight CSV" HorizontalAlignment="Left" Height="20" Margin="31,382,0,0" VerticalAlignment="Top" Width="127" Click="btn_open_test_click" FontWeight="Bold" FontSize="10"/>
 
-        <Button x:Name="btn_play" Content="Play" HorizontalAlignment="Left" Height="30" Margin="130,354,0,0" VerticalAlignment="Top" Width="50" Click="btn_play_click" FontWeight="Bold"/>
+        <Button x:Name="btn_back" Content="Back" HorizontalAlignment="Left" Height="30" Margin="255,372,0,0" VerticalAlignment="Top" Width="70" Click="btn_back_click" FontWeight="Bold"/>
 
-        <Button x:Name="btn_foward" Content="Forward" HorizontalAlignment="Left" Height="30" Margin="350,354,0,0" VerticalAlignment="Top" Width="70" Click="btn_foward_click" FontWeight="Bold"/>
+        <Button x:Name="btn_play" Content="Play" HorizontalAlignment="Left" Height="30" Margin="191,372,0,0" VerticalAlignment="Top" Width="50" Click="btn_play_click" FontWeight="Bold"/>
 
-        <Button x:Name="btn_pause" Content="Pause" HorizontalAlignment="Left" Height="30" Margin="270,354,0,0" VerticalAlignment="Top" Width="70" Click="btn_pause_click" FontWeight="Bold"/>
+        <Button x:Name="btn_foward" Content="Forward" HorizontalAlignment="Left" Height="30" Margin="405,372,0,0" VerticalAlignment="Top" Width="70" Click="btn_foward_click" FontWeight="Bold"/>
 
-        <Slider Value = "{Binding VmPlayController.VM_CurrentTimeStep}" x:Name="slider_timesteps" HorizontalAlignment="Center" Height="22" Margin="0,389,0,0" VerticalAlignment="Top" Width="760" FontWeight="Bold" FontSize="14" ValueChanged="Slider_ValueChanged" TickFrequency="1"/>
-        <Label Content = "{Binding VmPlayController.VM_CurrentTimeSpan}" x:Name="label_display_time" HorizontalAlignment="Left" Height="30" Margin="663,354,0,0"  VerticalAlignment="Top" Width="112" Cursor="" FontWeight="Bold"/>
-        <TextBox x:Name="txtbox_change_speed" HorizontalAlignment="Left" Height="29" Margin="537,355,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontWeight="Bold" TextChanged="txtbox_change_speed_TextChanged" KeyDown="txtbox_change_speed_pressed"/>
+        <Button x:Name="btn_pause" Content="Pause" HorizontalAlignment="Left" Height="30" Margin="330,372,0,0" VerticalAlignment="Top" Width="70" Click="btn_pause_click" FontWeight="Bold"/>
+
+        <Slider Value = "{Binding VmPlayController.VM_CurrentTimeStep}" x:Name="slider_timesteps" HorizontalAlignment="Center" Height="22" Margin="0,407,0,0" VerticalAlignment="Top" Width="760" FontWeight="Bold" FontSize="14" ValueChanged="Slider_ValueChanged" TickFrequency="1"/>
+        <Label Content = "{Binding VmPlayController.VM_CurrentTimeSpan}" x:Name="label_display_time" HorizontalAlignment="Left" Height="30" Margin="677,370,0,0"  VerticalAlignment="Top" Width="112" Cursor="" FontWeight="Bold" RenderTransformOrigin="0.588,0.868"/>
+        <TextBox x:Name="txtbox_change_speed" HorizontalAlignment="Left" Height="30" Margin="568,370,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontWeight="Bold" TextChanged="txtbox_change_speed_TextChanged" KeyDown="txtbox_change_speed_pressed"/>
         <Rectangle HorizontalAlignment="Left" Height="173" Margin="537,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="283"/>
 
         <Slider Value = "{Binding VmJoystick.VM_Rudder}" x:Name="slider_rudder" HorizontalAlignment="Left" Height="23" Margin="590,150,0,0" VerticalAlignment="Top" Width="172" TickFrequency="1"/>
@@ -59,14 +61,15 @@
                 <Ellipse x:Name="CanvasLittleEllipse" Fill="Gray" Height="131" Stroke="Black" Width="138"/>
             </Canvas>
             <ListBox x:Name="parameterList" ItemsSource="{Binding VmJoystick.VM_ListBox}"  Height="341" Width="118" SelectionChanged="ListBox_SelectionChanged"/>
-            <oxy:Plot Title="{Binding VmJoystick.VM_GraphName}" Height="181" Canvas.Left="123" Canvas.Top="10" Width="199">
-                <oxy:LineSeries ItemsSource="{Binding VmJoystick.VM_Points}"/>
+            <oxy:Plot Title="{Binding VmJoystick.VM_GraphNameLeft}" Height="181" Canvas.Left="123" Canvas.Top="10" Width="199">
+                <oxy:LineSeries ItemsSource="{Binding VmJoystick.VM_PointsLeft}"/>
             </oxy:Plot>
-            <oxy:Plot Title="Graph" Height="181" Canvas.Left="327" Canvas.Top="10" Width="199">
-                <oxy:LineSeries ItemsSource="{Binding VmJoystick.VM_Points}"/>
+            <oxy:Plot Title="{Binding VmJoystick.VM_GraphNameRight}" Height="181" Canvas.Left="327" Canvas.Top="10" Width="199">
+                <oxy:LineSeries ItemsSource="{Binding VmJoystick.VM_PointsRight}"/>
             </oxy:Plot>
-            <oxy:Plot Title="Graph" Height="158" Canvas.Left="128" Canvas.Top="183" Width="377">
-                <oxy:LineSeries ItemsSource="{Binding VmJoystick.VM_Points}"/>
+            <oxy:Plot Title="{Binding VmJoystick.VM_GraphNameBottom}" Height="158" Canvas.Left="128" Canvas.Top="183" Width="377">
+                <oxy:LineSeries ItemsSource="{Binding VmJoystick.VM_PointsBottomLine}"/>
+                <oxy:LineSeries ItemsSource="{Binding VmJoystick.VM_PointsBottom}" LineStyle="None" MarkerType="Circle" MarkerSize="1" MarkerFill="Black"/>
             </oxy:Plot>
         </Canvas>
         <Canvas x:Name="JoystickLittleCanvas" Height="59" Width="58" Margin="647,45,115,330">
@@ -76,6 +79,7 @@
                 </Ellipse.RenderTransform>
             </Ellipse>
         </Canvas>
+
 
     </Grid>
 </Window>

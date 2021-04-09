@@ -4528,23 +4528,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\aviad\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Arthur\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aviad\\OneDrive\\מסמכים\\GitHub\\FlightSimulator\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj",
+      "projectUniqueName": "C:\\Users\\Arthur\\Desktop\\FlightSim\\FlightSimulator\\FlightSimulator.csproj",
       "projectName": "FlightSimulator",
-      "projectPath": "C:\\Users\\aviad\\OneDrive\\מסמכים\\GitHub\\FlightSimulator\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj",
-      "packagesPath": "C:\\Users\\aviad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aviad\\OneDrive\\מסמכים\\GitHub\\FlightSimulator\\FlightSimulator\\FlightSimulator\\obj\\",
+      "projectPath": "C:\\Users\\Arthur\\Desktop\\FlightSim\\FlightSimulator\\FlightSimulator.csproj",
+      "packagesPath": "C:\\Users\\Arthur\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Arthur\\Desktop\\FlightSim\\FlightSimulator\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\aviad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Arthur\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4585,6 +4581,20 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -4593,7 +4603,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
