@@ -1,0 +1,247 @@
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.exe
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.deps.json
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.runtimeconfig.json
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.runtimeconfig.dev.json
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.dll
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\ref\FlightSimulator.dll
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.pdb
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csprojAssemblyReference.cache
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\PlayControllerView.g.cs
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator_MarkupCompile.cache
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator_MarkupCompile.lref
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\MainWindow.baml
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\PlayControllerView.baml
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.g.resources
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.AssemblyInfoInputs.cache
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.AssemblyInfo.cs
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csproj.CoreCompileInputs.cache
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.dll
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\ref\FlightSimulator.dll
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.pdb
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\FlightSimulator\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.genruntimeconfig.cache
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.exe
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.deps.json
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.runtimeconfig.json
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.runtimeconfig.dev.json
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.dll
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\ref\FlightSimulator.dll
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.pdb
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csprojAssemblyReference.cache
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\PlayControllerView.g.cs
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator_MarkupCompile.cache
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator_MarkupCompile.lref
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\MainWindow.baml
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\PlayControllerView.baml
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.g.resources
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.AssemblyInfoInputs.cache
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.AssemblyInfo.cs
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csproj.CoreCompileInputs.cache
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.dll
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\ref\FlightSimulator.dll
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.pdb
+C:\Users\aviad\Downloads\FlightSimulator (1)\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.genruntimeconfig.cache
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.exe
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.deps.json
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.runtimeconfig.json
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.runtimeconfig.dev.json
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.dll
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\ref\FlightSimulator.dll
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.pdb
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csprojAssemblyReference.cache
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\PlayControllerView.g.cs
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator_MarkupCompile.cache
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator_MarkupCompile.lref
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\MainWindow.baml
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\PlayControllerView.baml
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.g.resources
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.AssemblyInfoInputs.cache
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.AssemblyInfo.cs
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csproj.CoreCompileInputs.cache
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.dll
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\ref\FlightSimulator.dll
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.pdb
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.genruntimeconfig.cache
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\OxyPlot.dll
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\OxyPlot.Wpf.dll
+C:\Users\TAL\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csproj.CopyComplete
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csprojAssemblyReference.cache
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\PlayControllerView.g.cs
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator_MarkupCompile.cache
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator_MarkupCompile.lref
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.dll
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\ref\FlightSimulator.dll
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.pdb
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.exe
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.deps.json
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.runtimeconfig.json
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.runtimeconfig.dev.json
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.dll
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\ref\FlightSimulator.dll
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.pdb
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\OxyPlot.dll
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\bin\Debug\net5.0-windows\OxyPlot.Wpf.dll
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\MainWindow.baml
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\PlayControllerView.baml
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.g.resources
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.AssemblyInfoInputs.cache
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.AssemblyInfo.cs
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csproj.CoreCompileInputs.cache
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csproj.CopyComplete
+C:\Users\Arthur\Desktop\FlightSimulator\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.genruntimeconfig.cache
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.exe
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.deps.json
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.runtimeconfig.json
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.runtimeconfig.dev.json
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.dll
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\ref\FlightSimulator.dll
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.pdb
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\OxyPlot.dll
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\OxyPlot.Wpf.dll
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csprojAssemblyReference.cache
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\PlayControllerView.g.cs
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator_MarkupCompile.cache
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator_MarkupCompile.lref
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\MainWindow.baml
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\PlayControllerView.baml
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.g.resources
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.AssemblyInfoInputs.cache
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.AssemblyInfo.cs
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csproj.CoreCompileInputs.cache
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csproj.CopyComplete
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.dll
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\ref\FlightSimulator.dll
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.pdb
+C:\Users\aviad\Downloads\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.genruntimeconfig.cache
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.exe
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.deps.json
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.runtimeconfig.json
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.runtimeconfig.dev.json
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.dll
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\ref\FlightSimulator.dll
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.pdb
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\OxyPlot.dll
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\OxyPlot.Wpf.dll
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csprojAssemblyReference.cache
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\PlayControllerView.g.cs
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator_MarkupCompile.cache
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator_MarkupCompile.lref
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\MainWindow.baml
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\PlayControllerView.baml
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.g.resources
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.AssemblyInfoInputs.cache
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.AssemblyInfo.cs
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csproj.CoreCompileInputs.cache
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csproj.CopyComplete
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.dll
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\ref\FlightSimulator.dll
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.pdb
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.genruntimeconfig.cache
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\AnomalyDetectorUtil.pdb
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\AnomaliesWindow.g.cs
+C:\Users\Arthur\Desktop\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\AnomaliesWindow.baml
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.exe
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.deps.json
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.runtimeconfig.json
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.runtimeconfig.dev.json
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.dll
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\ref\FlightSimulator.dll
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.pdb
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\OxyPlot.dll
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\OxyPlot.Wpf.dll
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\bin\Debug\net5.0-windows\AnomalyDetectorUtil.pdb
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csprojAssemblyReference.cache
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\AnomaliesWindow.g.cs
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\PlayControllerView.g.cs
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator_MarkupCompile.cache
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator_MarkupCompile.lref
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\AnomaliesWindow.baml
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\MainWindow.baml
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\PlayControllerView.baml
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.g.resources
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.AssemblyInfoInputs.cache
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.AssemblyInfo.cs
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csproj.CoreCompileInputs.cache
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csproj.CopyComplete
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.dll
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\ref\FlightSimulator.dll
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.pdb
+C:\Users\aviad\Downloads\10f693c16363e10d\FlightSim\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.genruntimeconfig.cache
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.exe
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.deps.json
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.runtimeconfig.json
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.runtimeconfig.dev.json
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.dll
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\ref\FlightSimulator.dll
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.pdb
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\OxyPlot.dll
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\OxyPlot.Wpf.dll
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\AnomalyDetectorUtil.pdb
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csprojAssemblyReference.cache
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\AnomaliesWindow.g.cs
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\PlayControllerView.g.cs
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator_MarkupCompile.cache
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator_MarkupCompile.lref
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\AnomaliesWindow.baml
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\MainWindow.baml
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\PlayControllerView.baml
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.g.resources
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.AssemblyInfoInputs.cache
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.AssemblyInfo.cs
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csproj.CoreCompileInputs.cache
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csproj.CopyComplete
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.dll
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\ref\FlightSimulator.dll
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.pdb
+C:\Users\Arthur\Desktop\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.genruntimeconfig.cache
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csprojAssemblyReference.cache
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\PlayControllerView.g.cs
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator_MarkupCompile.cache
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator_MarkupCompile.lref
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.dll
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\ref\FlightSimulator.dll
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.pdb
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.exe
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.deps.json
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.runtimeconfig.json
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.runtimeconfig.dev.json
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.dll
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\ref\FlightSimulator.dll
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\FlightSimulator.pdb
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\OxyPlot.dll
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\OxyPlot.Wpf.dll
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\bin\Debug\net5.0-windows\AnomalyDetectorUtil.pdb
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\MainWindow.baml
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\PlayControllerView.baml
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.g.resources
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.AssemblyInfoInputs.cache
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.AssemblyInfo.cs
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csproj.CoreCompileInputs.cache
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.csproj.CopyComplete
+C:\Users\Lee\OneDrive\מסמכים\Projects\Visual Studio Projects\CurrentCode\FlightSimp\FlightSimulator\obj\Debug\net5.0-windows\FlightSimulator.genruntimeconfig.cache
