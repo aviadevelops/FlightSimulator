@@ -12,7 +12,7 @@ The app supports real-time updates of the flight and updates on anomaly detectio
 - [x] joystick animation.
 - [x] Real-time update flight statistics such as altimeter, airspeed, heading_deg, pitch, roll ,yaw.
 - [x] Select a flight feature for research
-- [x] You will see his a real-time updated graph of the feature and a real-time updated graph of his most correlated feature.
+- [x] You will see his real-time updated graph and a real-time updated graph of his most correlated feature.
 - [x] Chosen anomaly detection algorithm
 - [x] Loading a linear regression algorithm you will see a the regression line of the chosen feature and his most correlated feature.
 - [x] Loading a minimum enclosing circle algorithm you will him.
