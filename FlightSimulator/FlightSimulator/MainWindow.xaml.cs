@@ -48,7 +48,7 @@ namespace FlightSimulator
                 w.Show();
                 this.Close();
             }
-            catch (Exception err) //Probably wrong path
+            catch (Exception) //Probably wrong path
             {
                 pathTextBox.Text = "ERROR: Could not open app from given path, please try again.";
             }

@@ -1,4 +1,5 @@
-﻿using OxyPlot;
+﻿using AnomalyDetectorUtil;
+using OxyPlot;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,35 +14,19 @@ namespace FlightSimulator
 {
     public class FlightSimulatorModel : INotifyPropertyChanged
     {
-        private TcpClient client;
-        private NetworkStream stream;
         private int sleepFor = 100;
         private int currentTimeStep = 0;
-        private TimeSpan currentTimeSpan;
-        private SimpleAnomalyDetector anomalyDetector;
         private bool isPaused = true;
         private bool isDone = false;
         private bool displayPoints = false;
         public event PropertyChangedEventHandler PropertyChanged;
-        private float rudder = 0;
-        private float throttle = 0;
-        private string[] testLines;
-        private string[] trainLines;
-        private int rudderIndex = 0;
-        private int throttleIndex = 0;
-        private float altimeter = 0;
-        private float airspeed = 0;
-        private float heading_deg = 0;
-        private float pitch = 0;
-        private float roll = 0;
-        private float yaw = 0;
-        private float aileron;
-        private float elevator;
-        private int aileronIndex = 0;
-        private int elevatorIndex = 0;
-        private int[] displayIndexes = { 0, 0, 0 };
-        private string trainCSVFile = "";
-        private string testCSVFile = "";
+        private string[] trainLines, testLines;
+        private float currentMinX, currentMinY, currentMaxX, currentMaxY;
+        private int aileronIndex = 0, elevatorIndex = 0, rudderIndex = 0, throttleIndex = 0;
+        private float altimeter = 0, aileron = 0,  airspeed = 0, elevator = 0, heading_deg = 0, pitch = 0,
+            roll = 0, rudder = 0, throttle = 0, yaw = 0;
+        private int[] displayIndexes = { 0, 0};
+        private string trainCSVFile = "", testCSVFile = "";
         private string playBackPath;
         private string graphNameLeft = "Graph";
         private string graphNameRight = "Graph";
@@ -50,12 +35,72 @@ namespace FlightSimulator
         public float BigEllipseCanvasHeight;
         public float LittleEllipseCanvasWidth;
         public float LittleEllipseCanvasHeight;
-        private Dictionary<string, int> statIndecies = new Dictionary<string, int>();
+        private TcpClient client;
+        private NetworkStream stream;
+        private TimeSpan currentTimeSpan;
+        private List<string> listBox = new List<string>();
         private List<DataPoint> pointsLeft = new List<DataPoint>();
         private List<DataPoint> pointsRight = new List<DataPoint>();
-        private List<DataPoint> pointsBottom = new List<DataPoint>();
-        private List<DataPoint> pointsBottomLine = new List<DataPoint>();
-        private List<string> listBox = new List<string>();
+        private List<DataPoint> pointsBottomGray = new List<DataPoint>();
+        private List<DataPoint> pointsBottomRed = new List<DataPoint>();
+        private List<TimeSpan> currentErrors = new List<TimeSpan>();
+        private List<Tuple<int, int>> maxCorralatedFreatures = new List<Tuple<int, int>>();
+        private Dictionary<string, int> statIndecies = new Dictionary<string, int>();
+        private Dictionary<int, List<int>> errorTimes = new Dictionary<int, List<int>>();
+        private Dictionary<int, List<DataPoint>> savedPoints = new Dictionary<int, List<DataPoint>>();
+        private Object dll;
+
+        public float CurrentMaxX
+        {
+            get { return this.currentMaxX; }
+            set
+            {
+                this.currentMaxX = value;
+                notifyPropertyChanged("CurrentMaxX");
+            }
+        }
+
+        public float CurrentMinX
+        {
+            get { return this.currentMinX; }
+            set
+            {
+                this.currentMinX = value;
+                notifyPropertyChanged("CurrentMinX");
+            }
+        }
+
+        public float CurrentMaxY
+        {
+            get { return this.currentMaxY; }
+            set
+            {
+                this.currentMaxY = value;
+                notifyPropertyChanged("CurrentMaxY");
+            }
+        }
+
+        public float CurrentMinY
+        {
+            get { return this.currentMinY; }
+            set
+            {
+                this.currentMinY = value;
+                notifyPropertyChanged("CurrentMinY");
+            }
+        }
+
+        public void updateAxes()
+        {
+            float minX = this.findMin(this.trainLines, this.displayIndexes[0]), minY = this.findMin(this.trainLines, this.displayIndexes[1]), maxX = this.findMax(this.trainLines, this.displayIndexes[0]), maxY = this.findMax(this.trainLines, this.displayIndexes[1]);
+            float marginX = (float)((maxX - minX) * 0.75), marginY = (float)((maxY - minY) * 0.75);
+            this.CurrentMaxX = this.findMax(this.trainLines,this.displayIndexes[0]) + marginX;
+            this.CurrentMinX = this.findMin(this.trainLines, this.displayIndexes[0]) - marginX;
+            this.CurrentMaxY = this.findMax(this.trainLines, this.displayIndexes[1]) + marginY;
+            this.CurrentMinY = this.findMin(this.trainLines, this.displayIndexes[1]) - marginY;
+
+        }
+
 
         public List<string> ListBox
         {
@@ -83,23 +128,48 @@ namespace FlightSimulator
             }
         }
 
-        public IList<DataPoint> PointsBottomLine
+        public void load_dll(string path)
         {
-            get { return this.pointsBottomLine; }
+            if (path == null)
+            {
+                return;
+            }
+            string filenameOld = Path.GetFileName(path);
+            string filename = filenameOld.Split(".")[0];
+            filename = "FlightSimulator." + filename;
+            var dllFile = new System.IO.FileInfo(path);
+            System.Reflection.Assembly dllAssembly = System.Reflection.Assembly.LoadFile(dllFile.FullName);
+            Object dllInstance = (Object)dllAssembly.CreateInstance(filename);
+            dll = dllInstance;
+        }
+
+        public IList<DataPoint> PointsBottomGray
+        {
+            get { return this.pointsBottomGray; }
             set
             {
-                this.pointsBottomLine = new List<DataPoint>(value);
-                notifyPropertyChanged("PointsBottomLine");
+                this.pointsBottomGray = new List<DataPoint>(value);
+                notifyPropertyChanged("pointsBottomGray");
             }
         }
 
-        public IList<DataPoint> PointsBottom
+        public IList<DataPoint> PointsBottomRed
         {
-            get { return this.pointsBottom; }
+            get { return this.pointsBottomRed; }
             set
             {
-                this.pointsBottom = new List<DataPoint>(value);
-                notifyPropertyChanged("PointsBottom");
+                this.pointsBottomRed = new List<DataPoint>(value);
+                notifyPropertyChanged("PointsBottomRed");
+            }
+        }
+
+        public List<TimeSpan> ErrorsInGraph
+        {
+            get { return this.currentErrors; }
+            set
+            {
+                this.currentErrors = new List<TimeSpan>(value);
+                notifyPropertyChanged("ErrorsInGraph");
             }
         }
 
@@ -132,6 +202,14 @@ namespace FlightSimulator
             }
         }
 
+        public OxyPlot.Wpf.Annotation returnShapeAnnotation()
+        {
+            object[] argslearn = new object[] {(object)displayIndexes[0]};
+            var s = (OxyPlot.Wpf.Annotation)dll.GetType().GetMethod("returnShape").Invoke(dll, argslearn); 
+    
+            return s;
+        }
+
         public bool loadCsv(string path, bool isTrain)
         {
             try
@@ -151,6 +229,7 @@ namespace FlightSimulator
                     testLines = File.ReadAllLines(path);
                     CurrentTimeStep = 0;
                     initIndex();
+                    test();
                 }
                 return true;
             }
@@ -175,19 +254,11 @@ namespace FlightSimulator
             this.setListBox();
         }
         // 1 train, 2 test
-        public string[] getLines(int num)
+        public string[] getLines(bool isTrain)
         {
-            if (num == 1)
+            if (isTrain)
                 return this.trainLines; 
             return this.testLines;
-        }
-
-        public void setLines(string[] newLines, int num)
-        {
-            if (num == 1)
-                this.trainLines = newLines;
-            else
-                this.testLines = newLines;
         }
 
         public void SetIsPaused(bool s)
@@ -378,7 +449,6 @@ namespace FlightSimulator
             }
         }
 
-
         public float valueInColumn(int index, string line)
         {
             string[] values = line.Split(",");
@@ -439,6 +509,7 @@ namespace FlightSimulator
             isDone = false;
             setGraphDisplayIndex(ListBox[0]);
 
+  
             while (true)
             {
                 for (; CurrentTimeStep <= max; CurrentTimeStep++)
@@ -453,7 +524,7 @@ namespace FlightSimulator
                         setCurrentPoint(0);
                         setCurrentPoint(1);
                         if (displayPoints)
-                            displayBottomPoints();
+                            displayBottomGrayPoints();
                     }
                         
                     changeStats(lines[currentTimeStep]);
@@ -466,6 +537,10 @@ namespace FlightSimulator
                 }
                 if (isDone)
                     break;
+
+                CurrentTimeStep--;
+                displayBottomGrayPoints();
+                CurrentTimeStep++;
             }
         }
 
@@ -570,21 +645,70 @@ namespace FlightSimulator
             if (trainLines != null)
             {
                 findMaxCorrelatedFeature(line);
-                displayBottomGraph(line);
+                string graphName = (string)dll.GetType().GetMethod("getGraphName").Invoke(dll, null);
+                if (GraphNameRight == "CF Unavailable")
+                {
+                    GraphNameBottom = graphName + " Unavailable";
+                    GraphNameRight = "CF Unavailable";
+                    PointsBottomGray = new List<DataPoint>();
+                    PointsBottomRed = new List<DataPoint>();
+                    currentErrors = new List<TimeSpan>();
+                    displayPoints = false;
+                }
+                else {
+                    GraphNameBottom = graphName;
+                    if(savedPoints.ContainsKey(displayIndexes[0]))
+                    {
+                        PointsBottomRed = savedPoints[displayIndexes[0]];
+                        ErrorsInGraph = setDisplayTimes(displayIndexes[0]);
+                    }    
+                    displayPoints = true;
+                }
+                this.updateAxes();
             }  
+        }
+
+        public List<TimeSpan> setDisplayTimes(int index)
+        {
+            List<TimeSpan> displayedTimes = new List<TimeSpan>();
+            int size = errorTimes[index].Count();
+            for (int i = 0; i < size; i++)
+            {
+                displayedTimes.Add(TimeSpan.FromMilliseconds(errorTimes[index][i] * 100));
+            }
+            return displayedTimes;
+        }
+
+        public void jumpToTimestep(int timestep)
+        {
+            CurrentTimeStep = timestep;
+            CurrentTimeSpan = TimeSpan.FromSeconds(CurrentTimeStep / 10);
+            displayBottomGrayPoints();
+        }
+
+        public int findMaxCorrelatedFeature(int property)
+        {
+            int size = maxCorralatedFreatures.Count();
+            for (int i = 0; i < size; i++)
+            {
+                if (maxCorralatedFreatures[i].Item1 == property)
+                    return maxCorralatedFreatures[i].Item2;
+            }
+            return -1;
         }
 
         public void findMaxCorrelatedFeature(string property)
         {
             PointsRight = new List<DataPoint>();
-            string maxCorralated = anomalyDetector.findMaxCorralatedFeature(property);
-            if (maxCorralated == "CF Unavailable")
+            int maxCorrelated = findMaxCorrelatedFeature(getIndexFromListBox(property));
+            if (maxCorrelated == -1)
             {
                 PointsRight = new List<DataPoint>();
+                GraphNameRight = "CF Unavailable";
                 return;
             }
-            GraphNameRight = maxCorralated;
-            this.displayIndexes[1] = getIndexFromListBox(maxCorralated);
+            GraphNameRight = ListBox[maxCorrelated];
+            this.displayIndexes[1] = getIndexFromListBox(ListBox[maxCorrelated]);
         }
 
         public void setCurrentPoint(int indicator)
@@ -606,25 +730,38 @@ namespace FlightSimulator
                 this.testCSVFile = path;
         }
 
-        public List<float> getColumn(int index)
-        {
-            List<float> column = new List<float>();
-            for (int i = 0; i < trainLines.Length; i++)
-            {
-                column.Add(valueInColumn(index, trainLines[i]));
-            }
-            return column;
-        }
-
-
         public void train()
         {
-            anomalyDetector = new SimpleAnomalyDetector(this, (float)0.5);
-            anomalyDetector.learnNormal();
+            object[] argslearn = new object[] { (object)trainLines };
+            maxCorralatedFreatures = (List<Tuple<int, int>>)dll.GetType().GetMethod("learnNormal").Invoke(dll, argslearn);
+            //maxCorralatedFreatures = SimpleAnomalyDetector.learnNormal(trainLines);
         }
 
+        public void test()
+        {
+            object[] argslearn = new object[] { (object)testLines };
+            List<Tuple<int, int, long>> tupleDictionary =
+                (List<Tuple<int, int, long>>)dll.GetType().GetMethod("detect").Invoke(dll, argslearn);
+            int index , cfIndex, timeStep;
+            float x, y;
+            for (int i = 0; i < ListBox.Count; i++)
+            {
+                savedPoints[i] = new List<DataPoint>();
+                errorTimes[i] = new List<int>();
+            }
+            foreach (var p in tupleDictionary)
+            {
+                index = p.Item1;
+                cfIndex = p.Item2;
+                timeStep = (int)p.Item3;
+                x = valueInColumn(index, testLines[timeStep]);
+                y = valueInColumn(cfIndex, testLines[timeStep]);
+                errorTimes[index].Add(timeStep);
+                savedPoints[index].Add(new DataPoint((double)x, (double)y));
+            }
+        }
 
-        public void displayBottomPoints() 
+        public void displayBottomGrayPoints() 
         {
             List<DataPoint> Points = new List<DataPoint>();
             float x, y;
@@ -632,38 +769,9 @@ namespace FlightSimulator
             {
                 x = valueInColumn(displayIndexes[0], testLines[i]);
                 y = valueInColumn(displayIndexes[1], testLines[i]);
-                Points.Add(new DataPoint((Double)x, (Double)y));
+                Points.Add(new DataPoint((double)x, (double)y));
             }
-            PointsBottom = Points;
-        }
-
-        public void displayBottomGraph(string proprety)
-        {
-            List<float> data = anomalyDetector.returnLineDetails(proprety);
-            AnomalyDetectionUtil.Line linearReg;
-            List<DataPoint> Points = new List<DataPoint>();
-            try
-            {
-                linearReg = new AnomalyDetectionUtil.Line(data[0], data[1]);
-                GraphNameBottom = "Linear Regression";
-            } 
-            catch (Exception)
-            {
-                GraphNameBottom = "ERR: Linear Regression Unavailable";
-                GraphNameRight = "CF Unavailable";
-                PointsBottom = new List<DataPoint>();
-                PointsBottomLine = new List<DataPoint>();
-                displayPoints = false;
-                return;
-            }
-            // data[0] is a, data[1] is b
-            // create graph of linear line with starting time step and last time step
-            float startX = findMin(testLines, displayIndexes[0]);
-            float startY = findMax(testLines, displayIndexes[0]);
-            Points.Add(new DataPoint((Double)startX, (Double)linearReg.f(startX)));
-            Points.Add(new DataPoint((Double)startY, (Double)linearReg.f(startY)));
-            PointsBottomLine = Points;
-            displayPoints = true;
+            PointsBottomGray = Points;
         }
     }
 }

@@ -60,17 +60,26 @@
             <Canvas x:Name="JoystickBigCanvas" Height="131" Width="135" Canvas.Left="606" Canvas.Top="10">
                 <Ellipse x:Name="CanvasLittleEllipse" Fill="Gray" Height="131" Stroke="Black" Width="138"/>
             </Canvas>
-            <ListBox x:Name="parameterList" ItemsSource="{Binding VmJoystick.VM_ListBox}"  Height="341" Width="118" SelectionChanged="ListBox_SelectionChanged"/>
+            <ListBox x:Name="parameterList" ItemsSource="{Binding VmJoystick.VM_ListBox}"  Height="341" Width="118" SelectionChanged="parameterList_selectionChanged"/>
             <oxy:Plot Title="{Binding VmJoystick.VM_GraphNameLeft}" Height="181" Canvas.Left="123" Canvas.Top="10" Width="199">
                 <oxy:LineSeries ItemsSource="{Binding VmJoystick.VM_PointsLeft}"/>
             </oxy:Plot>
             <oxy:Plot Title="{Binding VmJoystick.VM_GraphNameRight}" Height="181" Canvas.Left="327" Canvas.Top="10" Width="199">
                 <oxy:LineSeries ItemsSource="{Binding VmJoystick.VM_PointsRight}"/>
             </oxy:Plot>
-            <oxy:Plot Title="{Binding VmJoystick.VM_GraphNameBottom}" Height="158" Canvas.Left="128" Canvas.Top="183" Width="377">
-                <oxy:LineSeries ItemsSource="{Binding VmJoystick.VM_PointsBottomLine}"/>
-                <oxy:LineSeries ItemsSource="{Binding VmJoystick.VM_PointsBottom}" LineStyle="None" MarkerType="Circle" MarkerSize="1" MarkerFill="Black"/>
+            <oxy:Plot x:Name="anomaliesGraph" Title="{Binding VmJoystick.VM_GraphNameBottom}" Height="158" Canvas.Left="128" Canvas.Top="183" Width="377">
+                <oxy:Plot.Axes>
+                    <oxy:LinearAxis Position="Bottom" Minimum="{Binding VmPlayController.VM_CurrentMinX}" Maximum="{Binding VmPlayController.VM_CurrentMaxX}" />
+                    <oxy:LinearAxis Position="Left" Minimum="{Binding VmPlayController.VM_CurrentMinY}" Maximum="{Binding VmPlayController.VM_CurrentMaxY}" />
+                </oxy:Plot.Axes>
+
+                <oxy:LineSeries ItemsSource="{Binding VmJoystick.VM_PointsBottomRed}" LineStyle="None" MarkerType="Circle" MarkerSize="3" MarkerFill="Red"/>
+                <oxy:LineSeries ItemsSource="{Binding VmJoystick.VM_PointsBottomGray}" LineStyle="None" MarkerType="Circle" MarkerSize="2" MarkerFill="Black"/>
+
             </oxy:Plot>
+            <Button x:Name="btn_load_dll" Content="Load DLL " Height="51" Canvas.Left="719" Canvas.Top="300" Width="81" Click="btn_load_dll_Click" FontWeight="Bold" />
+            <ListBox x:Name="anomalies_lb" Foreground="Red" HorizontalContentAlignment="Center" ItemsSource="{Binding VmJoystick.VM_ErrorsInGraph}" Height="50" Width="178" Canvas.Left="529" Canvas.Top="299" SelectionChanged="anomalies_lb_change"/>
+            <Label Content="Anomalous time steps" HorizontalContentAlignment="Center" Foreground="Red" Canvas.Left="529" Canvas.Top="274" Width="178" Height="25" FontWeight="Bold"/>
         </Canvas>
         <Canvas x:Name="JoystickLittleCanvas" Height="59" Width="58" Margin="647,45,115,330">
             <Ellipse x:Name="JoystickLittleEllipse" Fill="Black" Height="59" Stroke="Black" Width="58">

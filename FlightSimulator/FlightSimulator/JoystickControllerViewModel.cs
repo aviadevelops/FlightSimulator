@@ -49,16 +49,22 @@ namespace FlightSimulator
             set { this.fsmodel.PointsRight = value; }
         }
 
-        public IList<DataPoint> VM_PointsBottomLine
+        //public IList<DataPoint> VM_PointsBottomLine
+        //{
+        //    get { return this.fsmodel.PointsBottomLine; }
+        //    set { this.fsmodel.PointsBottomLine = value; }
+        //}
+
+        public IList<DataPoint> VM_PointsBottomGray
         {
-            get { return this.fsmodel.PointsBottomLine; }
-            set { this.fsmodel.PointsBottomLine = value; }
+            get { return this.fsmodel.PointsBottomGray; }
+            set { this.fsmodel.PointsBottomGray = value; }
         }
 
-        public IList<DataPoint> VM_PointsBottom
+        public IList<DataPoint> VM_PointsBottomRed
         {
-            get { return this.fsmodel.PointsBottom; }
-            set { this.fsmodel.PointsBottom = value; }
+            get { return this.fsmodel.PointsBottomRed; }
+            set { this.fsmodel.PointsBottomRed = value; }
         }
 
         public float VM_Rudder
@@ -85,7 +91,11 @@ namespace FlightSimulator
             set { this.fsmodel.GraphNameBottom = value; }
         }
 
-
+        public List<TimeSpan> VM_ErrorsInGraph
+        {
+            get { return this.fsmodel.ErrorsInGraph; }
+            set { this.fsmodel.ErrorsInGraph = value; }
+        }
 
         public void setBigCanvasWidthAndHeight(float actualWidth, float actualHeight)
         {
@@ -129,42 +139,42 @@ namespace FlightSimulator
 
         public float rudderMax()
         {
-            return this.fsmodel.findMax(this.fsmodel.getLines(0), this.fsmodel.getRudderIndex());
+            return this.fsmodel.findMax(this.fsmodel.getLines(false), this.fsmodel.getRudderIndex());
         }
 
         public float rudderMin()
         {
-            return this.fsmodel.findMin(this.fsmodel.getLines(0), this.fsmodel.getRudderIndex());
+            return this.fsmodel.findMin(this.fsmodel.getLines(false), this.fsmodel.getRudderIndex());
         }
 
         public float ThrottleMax()
         {
-            return this.fsmodel.findMax(this.fsmodel.getLines(0), this.fsmodel.getThrottleIndex());
+            return this.fsmodel.findMax(this.fsmodel.getLines(false), this.fsmodel.getThrottleIndex());
         }
 
         public float ThrottleMin()
         {
-            return this.fsmodel.findMin(this.fsmodel.getLines(0), this.fsmodel.getThrottleIndex());
+            return this.fsmodel.findMin(this.fsmodel.getLines(false), this.fsmodel.getThrottleIndex());
         }
 
         public float AileronMax()
         {
-            return this.fsmodel.findMax(this.fsmodel.getLines(0), this.fsmodel.getAileronIndex());
+            return this.fsmodel.findMax(this.fsmodel.getLines(false), this.fsmodel.getAileronIndex());
         }
 
         public float AileronMin()
         {
-            return this.fsmodel.findMin(this.fsmodel.getLines(0), this.fsmodel.getAileronIndex());
+            return this.fsmodel.findMin(this.fsmodel.getLines(false), this.fsmodel.getAileronIndex());
         }
 
         public float ElevatorMax()
         {
-            return this.fsmodel.findMax(this.fsmodel.getLines(0), this.fsmodel.getElevatorIndex());
+            return this.fsmodel.findMax(this.fsmodel.getLines(false), this.fsmodel.getElevatorIndex());
         }
 
         public float ElevatorMin()
         {
-            return this.fsmodel.findMin(this.fsmodel.getLines(0), this.fsmodel.getElevatorIndex());
+            return this.fsmodel.findMin(this.fsmodel.getLines(false), this.fsmodel.getElevatorIndex());
         }
 
 

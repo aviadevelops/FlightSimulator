@@ -7,7 +7,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="flightgear-1227-1.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="flightgear-1227-1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="OxyPlot.Wpf" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AnomalyDetectorUtil">
+      <HintPath>bin\Debug\net5.0-windows\AnomalyDetectorUtil.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

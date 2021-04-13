@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KT16NvkdvlxQJTBvdn5Y3X3giPvuNnp24YjZ+tp2QB7/PLV0A7FM4ntOdd1aiRPai7ZPeQPPnAaBhhcwlW7t/A==",
+  "dgSpecHash": "KRQBPI6xRxbTG+esMexQAUsv3hfyBcmZ9xl9ZqxP8SakelgPyX/1dwMzx15d7Hwf2h3VQyetDeZMXl9d/DTvuQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Arthur\\Desktop\\FlightSim\\FlightSimulator\\FlightSimulator.csproj",
+  "projectFilePath": "C:\\Users\\Arthur\\Desktop\\ARTHURISGAY\\FlightSimulator\\FlightSimulator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Arthur\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Arthur\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

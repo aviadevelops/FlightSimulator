@@ -1,7 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.ComponentModel;
-using System.IO;
 using System.Threading;
 using System.Windows;
 
@@ -9,10 +8,10 @@ namespace FlightSimulator
 {
     public class PlayControllerViewModel : INotifyPropertyChanged
     {
-    bool hasStarted = false;
-    private int csvCount = 0;
-    private FlightSimulatorModel fsmodel;
-    public event PropertyChangedEventHandler PropertyChanged;
+        bool hasStarted = false;
+        bool isDLLLoaded = false;
+        private FlightSimulatorModel fsmodel;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public int VM_CurrentTimeStep
         {
@@ -26,7 +25,43 @@ namespace FlightSimulator
         {
             get { return fsmodel.CurrentTimeSpan; }
             set { fsmodel.CurrentTimeSpan = value; }    
-        } 
+        }
+
+        public float VM_CurrentMaxX
+        {
+            get { return this.fsmodel.CurrentMaxX; }
+            set
+            {
+                this.fsmodel.CurrentMaxX = value;
+            }
+        }
+
+        public float VM_CurrentMinX
+        {
+            get { return this.fsmodel.CurrentMinX; }
+            set
+            {
+                this.fsmodel.CurrentMinX = value;
+            }
+        }
+
+        public float VM_CurrentMaxY
+        {
+            get { return this.fsmodel.CurrentMaxY; }
+            set
+            {
+                this.fsmodel.CurrentMaxY = value;
+            }
+        }
+
+        public float VM_CurrentMinY
+        {
+            get { return this.fsmodel.CurrentMinY; }
+            set
+            {
+                this.fsmodel.CurrentMinY = value;
+            }
+        }
 
         public PlayControllerViewModel(FlightSimulatorModel fsmodel)
         {
@@ -47,17 +82,18 @@ namespace FlightSimulator
 
         public int get_csv_length()
         {
-            if (this.fsmodel.getLines(csvCount) == null)
+            if (this.fsmodel.getLines(true) == null)
             {
                 return 0;
             }
-            return this.fsmodel.getLines(csvCount).Length;
+            return this.fsmodel.getLines(true).Length;
         }
 
         public void load_csv(bool isTrain)
         {
             string path = null;
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "csv files (*.csv)|*.csv";
             if (openFileDialog.ShowDialog() == true)
                 path = openFileDialog.FileName;
             if (path == null)
@@ -79,29 +115,43 @@ namespace FlightSimulator
             }
             if (!isTrain && !success)
             {
-                string text = "Please load a learn normal CSV file before you load your flight CSV!";
-                MessageBox.Show(text);
+                MessageBox.Show("Please load a learn normal CSV file before you load your flight CSV!");
                 return;
             }
             if (!success)
             {
-                string text = "An error has occured, please try again.";
-                MessageBox.Show(text);
+                MessageBox.Show("An error has occured, please try again.");
                 return;
             }
             MessageBox.Show("Successfuly loaded flight! Press Play to start.");
 
         }
 
+        public void load_dll()
+        {
+            isDLLLoaded = false;
+            string path = null;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "dll files (*.dll)|*.dll";
+            if (openFileDialog.ShowDialog() == true)
+                path = openFileDialog.FileName;
+            this.fsmodel.load_dll(path);
+            isDLLLoaded = true;
+        }
+
         public void play()
         {
-            if (this.fsmodel.getLines(csvCount) == null)
+            if (!isDLLLoaded)
             {
-                string text = "Please open a non empty CSV";
-                MessageBox.Show(text);
+                MessageBox.Show("Please load DLL first");
                 return;
             }
-            if (csvCount == 1)
+            if (this.fsmodel.getLines(true) == null)
+            {
+                MessageBox.Show("Please open a non empty CSV");
+                return;
+            }
+            if (this.fsmodel.getLines(false) == null)
             {
                 string text = "Please open a test CSV";
                 MessageBox.Show(text);
@@ -118,15 +168,23 @@ namespace FlightSimulator
             if (!hasStarted)
             {
                 hasStarted = true;
-                var thread = new Thread(() => fsmodel.sendInLoop(this.fsmodel.getLines(csvCount), max));
+                var thread = new Thread(() => fsmodel.sendInLoop(this.fsmodel.getLines(false), max));
                 thread.Start();
             }
+            
 
+        }
+
+        public OxyPlot.Wpf.Annotation calculateShape()
+        {
+            //plot.Annotations.Clear();
+            return this.fsmodel.returnShapeAnnotation();
+                
         }
 
         public void pause()
         {
-            fsmodel.SetIsPaused(true);
+            fsmodel.SetIsPaused(true);            
         }
 
         public void changeSpeed(string text)
@@ -140,6 +198,12 @@ namespace FlightSimulator
                 fsmodel.SetSleepFor((int)temp);
             }
             catch (Exception) {; }
+        }
+
+        public void jumpToTimestep(int timestep)
+        {
+            fsmodel.jumpToTimestep(timestep);
+            pause();
         }
 
         public void close()

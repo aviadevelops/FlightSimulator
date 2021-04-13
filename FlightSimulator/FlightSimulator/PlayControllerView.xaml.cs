@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,7 +13,7 @@ namespace FlightSimulator
     public partial class PlaybackScreen : Window
     {
         private PlayControllerViewModel playVM;
-        private bool loadedLearnable = false;
+        //private bool isClicked = false;
 
         public PlaybackScreen(string playBackPath)
         {
@@ -81,6 +82,18 @@ namespace FlightSimulator
 
         private void btn_play_click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                OxyPlot.Wpf.Annotation shape = playVM.calculateShape();
+                if (shape == null)
+                {
+                    playVM.play();
+                    return;
+                }
+                anomaliesGraph.Annotations.Add(shape);
+                anomaliesGraph.InvalidatePlot(true);
+            }
+            catch (Exception) { }
             playVM.play();
         }
 
@@ -106,10 +119,35 @@ namespace FlightSimulator
 
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void parameterList_selectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int x = 0;
-            playVM.displayGraph(parameterList.SelectedItems[x].ToString());
+            
+            playVM.displayGraph(parameterList.SelectedItem.ToString());
+            anomaliesGraph.Annotations.Clear();
+            OxyPlot.Wpf.Annotation shape = playVM.calculateShape();
+            this.anomaliesGraph.ResetAllAxes();
+            //this.playVM.updateAxes();
+            if (shape == null)
+                return;
+            anomaliesGraph.Annotations.Add(shape);
+            anomaliesGraph.InvalidatePlot(true);
+        }
+
+        private void anomalies_lb_change(object sender, SelectionChangedEventArgs e)
+        {
+            TimeSpan timeSpan;
+            try
+            {
+                timeSpan = TimeSpan.Parse(anomalies_lb.SelectedItem.ToString());
+            }
+            catch (Exception) { return; }
+            playVM.jumpToTimestep((int)timeSpan.TotalMilliseconds / 100);
+            MessageBox.Show("The flight is paused on time step " + timeSpan + " to resume click play");
+        }
+
+        private void btn_load_dll_Click(object sender, RoutedEventArgs e)
+        {
+            playVM.load_dll();
         }
     }
 }
