@@ -29,15 +29,16 @@ The app supports real-time updates of the flight and updates on anomaly detectio
 
 ### Compiling and Running
 1. Download this repository
-2. Open "FlightSimulator.sln" in Visual studio and build the project.
-3. Run the app and you will see the home screen - load the .exe file which propably locate at FlightSimulator/bin/Debug/FlightSimulator.exe
-4. Load the chosen anomaly detection algorithm, for exmaple a Linear regression or a minimum enclosing circle. This algorithm you must be a .dll file!
-5. Load the csv tain file
-6. Load the test csv file
-7. Press the play button 
+2. Make sure the settings file ("playback_small.xml") is located in the correct directory (flightGear/data/protocols).
+3. Open "FlightSimulator.sln" in Visual studio and build the project.
+4. Run the app and you will see the home screen - load the .exe file which propably locate at FlightSimulator/bin/Debug/FlightSimulator.exe
+5. Load the chosen anomaly detection algorithm, for exmaple a Linear regression or a minimum enclosing circle. This algorithm must be a .dll file!
+6. Load the csv tain file
+7. Load the test csv file
+8. Press the play button 
 
 ### Additional Links
-* [UML diagram](http://google.com)
+* [UML diagram](UML.pdf)
 * [tutorial video](http://google.com) 
 
 
