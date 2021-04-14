@@ -19,6 +19,10 @@ The app supports real-time updates of the flight and updates on anomaly detectio
 - [x] In the graph below you will see gray points belonging to the last 30 seconds of the flight.
 - [x] Points indicating an anomaly will be painted red.
 
+![Image of Min Circle](https://github.com/aviadevelops/FlightSimulator/blob/main/min%20circle.PNG)
+
+![Image of Linear Regression](https://github.com/aviadevelops/FlightSimulator/blob/main/linear%20reg.PNG)
+
 ### Folder Structure
 
 
