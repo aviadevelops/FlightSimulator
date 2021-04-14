@@ -8,15 +8,36 @@
 
   <ItemGroup>
     <None Remove="flightgear-1227-1.jpg" />
+    <None Remove="Images\backward.jpg" />
+    <None Remove="Images\forward.jpg" />
+    <None Remove="Images\pause.jpg" />
+    <None Remove="Images\plane_bg.jpg" />
+    <None Remove="Images\play.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="flightgear-1227-1.jpg">
+    <Resource Include="Images\backward.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\flightgear-1227-1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\forward.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\pause.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\plane_bg.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\play.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CircularGauge" Version="1.0.0" />
     <PackageReference Include="OxyPlot.Wpf" Version="2.0.0" />
   </ItemGroup>
 

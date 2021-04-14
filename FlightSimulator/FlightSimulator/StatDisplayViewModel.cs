@@ -59,5 +59,127 @@ namespace FlightSimulator
             get { return fsmodel.Yaw; }
             set { fsmodel.Yaw = value; }
         }
+
+
+        public int VM_MaxSpeed
+        {
+            get { return this.fsmodel.MaxSpeed; }
+            set
+            {
+                this.fsmodel.MaxSpeed = value;
+            }
+        }
+
+        public int VM_MinSpeed
+        {
+            get { return this.fsmodel.MinSpeed; }
+            set
+            {
+                this.fsmodel.MinSpeed = value;
+            }
+        }
+
+        public int VM_MaxYaw
+        {
+            get { return fsmodel.MaxYaw; }
+            set
+            {
+                fsmodel.MaxYaw = value;
+
+            }
+        }
+
+        public int VM_MinYaw
+        {
+            get { return fsmodel.MinYaw; }
+            set
+            {
+                fsmodel.MinYaw = value;
+            }
+        }
+
+        public int VM_MaxRoll
+        {
+            get { return fsmodel.MaxRoll; }
+            set
+            {
+                fsmodel.MaxRoll = value;
+
+            }
+        }
+
+        public int VM_MinRoll
+        {
+            get { return fsmodel.MinRoll; }
+            set
+            {
+                fsmodel.MinRoll = value;
+
+            }
+        }
+
+        public int VM_MaxPitch
+        {
+            get { return fsmodel.MaxPitch; }
+            set
+            {
+                fsmodel.MaxPitch = value;
+            }
+        }
+
+        public int VM_MinPitch
+        {
+            get { return fsmodel.MinPitch; }
+            set
+            {
+                fsmodel.MinPitch = value;
+
+            }
+        }
+
+
+        public int VM_MaxAlt
+        {
+            get { return fsmodel.MaxAlt; }
+            set
+            {
+                fsmodel.MaxAlt = value;
+            }
+        }
+
+        public int VM_MinAlt
+        {
+            get { return fsmodel.MinAlt; }
+            set
+            {
+                fsmodel.MinAlt = value;
+            }
+        }
+
+
+        public int VM_MaxDeg
+        {
+            get { return fsmodel.MaxDeg; }
+            set
+            {
+                fsmodel.MaxDeg = value;
+            }
+        }
+
+        public int VM_MinDeg
+        {
+            get { return fsmodel.MinDeg; }
+            set
+            {
+                fsmodel.MinDeg = value;
+            }
+        }
+
+        public void SetMaxMinAirSpeed()
+        {
+
+            this.fsmodel.SetGaugesMinMax();
+
+        }
     }
 }

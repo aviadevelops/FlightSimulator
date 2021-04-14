@@ -39,6 +39,8 @@ namespace FlightSimulator
             this.slider_throttle.Minimum = 0;
             this.slider_throttle.Maximum = 1;
 
+            this.StatDisplayVM.SetMaxMinAirSpeed();
+
             this.slider_timesteps.Maximum = playVM.get_csv_length();
 
             this.JoystickVM.setBigCanvasWidthAndHeight((float)(float)this.JoystickBigCanvas.ActualWidth, (float)this.JoystickBigCanvas.ActualHeight);
@@ -81,7 +83,7 @@ namespace FlightSimulator
             int length = (int)this.slider_timesteps.Maximum;
             playVM.VM_CurrentTimeStep += length / 50;
             if (playVM.VM_CurrentTimeStep >= length)
-                playVM.VM_CurrentTimeStep = length;
+                playVM.VM_CurrentTimeStep = length - 1;
         }
 
         private void btn_play_click(object sender, RoutedEventArgs e)

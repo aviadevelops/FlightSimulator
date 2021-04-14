@@ -5,32 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:oxy="http://oxyplot.org/wpf"
         xmlns:local="clr-namespace:FlightSimulator"
+           xmlns:gauge="clr-namespace:CircularGauge;assembly=CircularGauge"
         mc:Ignorable="d"
-        Title="Flight Simulator" Height="465" Width="820" Closing="window_flightgear_closing" Background="White">
+        Title="Flight Simulator" Height="585" Width="1000" Closing="window_flightgear_closing">
+    <Window.Background>
+        <ImageBrush ImageSource="\Images\plane_bg.jpg"></ImageBrush>
+    </Window.Background>
     <Grid>
-        <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center" Height="81" Margin="0,352,0,0" VerticalAlignment="Top" Width="780">
-            <Label Content="Play speed" HorizontalAlignment="Left" Height="28" Margin="464,19,0,0" VerticalAlignment="Top" Width="84" FontSize="14" FontWeight="Bold" RenderTransformOrigin="-0.355,0.684"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Height="101" Margin="33,468,0,0" VerticalAlignment="Top" Width="925" Grid.ColumnSpan="3">
+            <Label Content="Play speed" HorizontalAlignment="Left" Height="28" Margin="562,5,0,0" VerticalAlignment="Top" Width="84" FontSize="14" FontWeight="Bold" RenderTransformOrigin="-0.355,0.684" Foreground="White"/>
         </Border>
+        <Button x:Name="btn_open_train" Content="Load new train flight CSV" HorizontalAlignment="Left" Height="24" Margin="69,474,0,0" VerticalAlignment="Top" Width="127" Click="btn_open_train_click" FontWeight="Bold" FontSize="10" Grid.ColumnSpan="3"/>
 
-        <Button x:Name="btn_open_train" Content="Load new train flight CSV" HorizontalAlignment="Left" Height="24" Margin="31,358,0,0" VerticalAlignment="Top" Width="127" Click="btn_open_train_click" FontWeight="Bold" FontSize="10"/>
+        <Button x:Name="btn_open_test" Content="Load new flight CSV" HorizontalAlignment="Left" Height="20" Margin="69,502,0,0" VerticalAlignment="Top" Width="127" Click="btn_open_test_click" FontWeight="Bold" FontSize="10" Grid.ColumnSpan="3"/>
 
-        <Button x:Name="btn_open_test" Content="Load new flight CSV" HorizontalAlignment="Left" Height="20" Margin="31,382,0,0" VerticalAlignment="Top" Width="127" Click="btn_open_test_click" FontWeight="Bold" FontSize="10"/>
+        <Button x:Name="btn_back" HorizontalAlignment="Left" Height="30" Margin="352,474,0,0" VerticalAlignment="Top" Width="70" Click="btn_back_click" FontWeight="Bold" Grid.ColumnSpan="3">
+            <Image Source="\Images\backward.jpg" Stretch="Uniform"></Image>
+        </Button>
 
-        <Button x:Name="btn_back" Content="Back" HorizontalAlignment="Left" Height="30" Margin="255,372,0,0" VerticalAlignment="Top" Width="70" Click="btn_back_click" FontWeight="Bold"/>
+        <Button x:Name="btn_play" HorizontalAlignment="Left" Height="30" Margin="283,474,0,0" VerticalAlignment="Top" Width="64" Click="btn_play_click" FontWeight="Bold" Grid.ColumnSpan="3">
+            <Image Source="\Images\play.jpg" Stretch="Uniform"></Image>
+        </Button>
 
-        <Button x:Name="btn_play" Content="Play" HorizontalAlignment="Left" Height="30" Margin="191,372,0,0" VerticalAlignment="Top" Width="50" Click="btn_play_click" FontWeight="Bold"/>
+        <Button x:Name="btn_foward" HorizontalAlignment="Left" Height="30" Margin="509,474,0,0" VerticalAlignment="Top" Width="70" Click="btn_foward_click" FontWeight="Bold" Grid.Column="2">
+            <Image Source="\Images\forward.jpg" Stretch="Uniform"></Image>
+        </Button>
 
-        <Button x:Name="btn_foward" Content="Forward" HorizontalAlignment="Left" Height="30" Margin="405,372,0,0" VerticalAlignment="Top" Width="70" Click="btn_foward_click" FontWeight="Bold"/>
+        <Button x:Name="btn_pause" HorizontalAlignment="Left" Height="30" Margin="431,474,0,0" VerticalAlignment="Top" Width="70" Click="btn_pause_click" FontWeight="Bold" Grid.ColumnSpan="3">
+            <Image Source="\Images\pause.jpg" Stretch="Uniform"></Image>
+        </Button>
 
-        <Button x:Name="btn_pause" Content="Pause" HorizontalAlignment="Left" Height="30" Margin="330,372,0,0" VerticalAlignment="Top" Width="70" Click="btn_pause_click" FontWeight="Bold"/>
-
-        <Slider Value = "{Binding VmPlayController.VM_CurrentTimeStep}" x:Name="slider_timesteps" HorizontalAlignment="Center" Height="22" Margin="0,407,0,0" VerticalAlignment="Top" Width="760" FontWeight="Bold" FontSize="14" ValueChanged="Slider_ValueChanged" TickFrequency="1"/>
-        <Label Content = "{Binding VmPlayController.VM_CurrentTimeSpan}" x:Name="label_display_time" HorizontalAlignment="Left" Height="30" Margin="677,370,0,0"  VerticalAlignment="Top" Width="112" Cursor="" FontWeight="Bold" RenderTransformOrigin="0.588,0.868"/>
-        <TextBox x:Name="txtbox_change_speed" HorizontalAlignment="Left" Height="30" Margin="568,370,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontWeight="Bold" TextChanged="txtbox_change_speed_TextChanged" KeyDown="txtbox_change_speed_pressed"/>
-        <Rectangle HorizontalAlignment="Left" Height="173" Margin="537,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="283"/>
-
-        <Slider Value = "{Binding VmJoystick.VM_Rudder}" x:Name="slider_rudder" HorizontalAlignment="Left" Height="23" Margin="590,150,0,0" VerticalAlignment="Top" Width="172" TickFrequency="1"/>
-        <Slider Value = "{Binding VmJoystick.VM_Throttle}" x:Name="slider_throttle" HorizontalAlignment="Left" Height="23" Margin="481,74,0,0" VerticalAlignment="Top" Width="164" RenderTransformOrigin="0.5,0.5" TickFrequency="1">
+        <Slider Value = "{Binding VmPlayController.VM_CurrentTimeStep}" x:Name="slider_timesteps" HorizontalAlignment="Left" Height="22" Margin="69,526,0,0" VerticalAlignment="Top" Width="857" FontWeight="Bold" FontSize="14" ValueChanged="Slider_ValueChanged" TickFrequency="1" Grid.ColumnSpan="3"/>
+        <Label Content = "{Binding VmPlayController.VM_CurrentTimeSpan}" x:Name="label_display_time" HorizontalAlignment="Left" Height="29" Margin="808,475,0,0"  VerticalAlignment="Top" Width="112" Cursor="" FontWeight="Bold" RenderTransformOrigin="0.588,0.868" Grid.ColumnSpan="3" Foreground="White"/>
+        <TextBox x:Name="txtbox_change_speed" HorizontalAlignment="Left" Height="30" Margin="692,474,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" FontWeight="Bold" TextChanged="txtbox_change_speed_TextChanged" KeyDown="txtbox_change_speed_pressed" Grid.ColumnSpan="3"/>
+        <Rectangle HorizontalAlignment="Left" Height="180" Margin="765,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="235" Grid.ColumnSpan="3"/>
+        <Slider Value = "{Binding VmJoystick.VM_Rudder}" x:Name="slider_rudder" HorizontalAlignment="Left" Height="23" Margin="802,154,0,0" VerticalAlignment="Top" Width="172" TickFrequency="1" Grid.ColumnSpan="3"/>
+        <Slider Value = "{Binding VmJoystick.VM_Throttle}" x:Name="slider_throttle" HorizontalAlignment="Left" Height="23" Margin="698,74,0,0" VerticalAlignment="Top" Width="164" RenderTransformOrigin="0.5,0.5" TickFrequency="1" Grid.ColumnSpan="3">
             <Slider.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -42,52 +57,256 @@
         </Slider>
 
 
-        <Label x:Name="label_altimeter_name" Content="Altitude (meter):" HorizontalAlignment="Left" Margin="502,186,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.RowSpan="2"/>
-        <Label x:Name="label_roll_name" Content="Roll:" HorizontalAlignment="Left" Margin="684,217,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.561,-0.229" FontWeight="Bold" Grid.RowSpan="2"/>
-        <Label x:Name="label_pitch_name" Content="Pitch:" HorizontalAlignment="Left" Margin="684,188,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.RowSpan="2"/>
-        <Label x:Name="label_heading_deg_name" Content="Heading Degree:" HorizontalAlignment="Left" Margin="502,248,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.RowSpan="2"/>
-        <Label x:Name="label_airspeed_name" Content="Airspeed:" HorizontalAlignment="Left" Margin="502,217,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.535,-0.024" FontWeight="Bold" Grid.RowSpan="2"/>
-        <Label x:Name="label_yaw_name" Content="Yaw:" HorizontalAlignment="Left" Margin="684,248,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.RowSpan="2"/>
-        <Label x:Name="label_altimeter" Content="{Binding VmStatDisplay.VM_Altimeter}" HorizontalAlignment="Left" Margin="616,186,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
-        <Label x:Name="label_roll" Content="{Binding VmStatDisplay.VM_Roll}" HorizontalAlignment="Left" Margin="731,217,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.561,-0.229" Grid.Row="1"/>
-        <Label x:Name="label_pitch" Content="{Binding VmStatDisplay.VM_Pitch}" HorizontalAlignment="Left" Margin="731,188,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
-        <Label x:Name="label_heading_deg" Content="{Binding VmStatDisplay.VM_Heading_deg}" HorizontalAlignment="Left" Margin="616,248,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
-        <Label x:Name="label_airspeed" Content = "{Binding VmStatDisplay.VM_Airspeed}" HorizontalAlignment="Left" Margin="616,217,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.535,-0.024" Grid.RowSpan="2"/>
-        <Label x:Name="label_yaw" Content = "{Binding VmStatDisplay.VM_Yaw}" HorizontalAlignment="Left" Margin="731,248,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
 
 
-        <Canvas>
-            <Canvas x:Name="JoystickBigCanvas" Height="131" Width="135" Canvas.Left="606" Canvas.Top="10">
-                <Ellipse x:Name="CanvasLittleEllipse" Fill="Gray" Height="131" Stroke="Black" Width="138"/>
+
+
+
+        <Canvas Margin="-2,4,2,-6" Grid.ColumnSpan="3">
+            <Canvas x:Name="JoystickBigCanvas" Height="131" Width="135" Canvas.Left="826" Canvas.Top="10">
+                <Ellipse x:Name="CanvasLittleEllipse" Fill="Gray" Height="131" Stroke="Black" Width="138" Canvas.Left="-7" Canvas.Top="9"/>
+                <Canvas x:Name="JoystickLittleCanvas" Height="59" Width="58" Canvas.Left="36" Canvas.Top="36">
+                    <Ellipse x:Name="JoystickLittleEllipse" Fill="Black" Height="59" Stroke="Black" Width="58" Canvas.Left="-1" Canvas.Top="8">
+                        <Ellipse.RenderTransform>
+                            <TranslateTransform x:Name="EllipseTransform" X="{Binding VmJoystick.VM_Aileron}" Y="{Binding VmJoystick.VM_Elevator}" />
+                        </Ellipse.RenderTransform>
+                    </Ellipse>
+                </Canvas>
             </Canvas>
-            <ListBox x:Name="parameterList" ItemsSource="{Binding VmJoystick.VM_ListBox}"  Height="341" Width="118" SelectionChanged="parameterList_selectionChanged"/>
-            <oxy:Plot Title="{Binding VmJoystick.VM_GraphNameLeft}" Height="181" Canvas.Left="123" Canvas.Top="10" Width="199">
+            <ListBox x:Name="parameterList" ItemsSource="{Binding VmJoystick.VM_ListBox}"  Height="463" Width="118" SelectionChanged="parameterList_selectionChanged"/>
+            <oxy:Plot Title="{Binding VmJoystick.VM_GraphNameLeft}" TitleFontSize="15" Height="181" Canvas.Left="158" Canvas.Top="10" Width="230">
                 <oxy:LineSeries ItemsSource="{Binding VmJoystick.VM_PointsLeft}"/>
             </oxy:Plot>
-            <oxy:Plot Title="{Binding VmJoystick.VM_GraphNameRight}" Height="181" Canvas.Left="327" Canvas.Top="10" Width="199">
+            <oxy:Plot Title="{Binding VmJoystick.VM_GraphNameRight}" TitleFontSize="15" Height="181" Canvas.Left="460" Canvas.Top="10" Width="230">
                 <oxy:LineSeries ItemsSource="{Binding VmJoystick.VM_PointsRight}"/>
             </oxy:Plot>
-            <oxy:Plot x:Name="anomaliesGraph" Title="{Binding VmJoystick.VM_GraphNameBottom}" Height="158" Canvas.Left="128" Canvas.Top="183" Width="377">
+            <oxy:Plot x:Name="anomaliesGraph" Title="{Binding VmJoystick.VM_GraphNameBottom}" Height="200" Canvas.Left="146" Canvas.Top="196" Width="418">
                 <oxy:Plot.Axes>
-                    <oxy:LinearAxis Position="Bottom" Minimum="{Binding VmPlayController.VM_CurrentMinX}" Maximum="{Binding VmPlayController.VM_CurrentMaxX}" />
-                    <oxy:LinearAxis Position="Left" Minimum="{Binding VmPlayController.VM_CurrentMinY}" Maximum="{Binding VmPlayController.VM_CurrentMaxY}" />
+                    <oxy:LinearAxis Position="Bottom" Minimum="{Binding VmPlayController.VM_CurrentMinX}" Maximum="{Binding VmPlayController.VM_CurrentMaxX}" Title="{Binding VmJoystick.VM_GraphNameLeft}" TitleFontSize = "10" TitleFont="Comic Sans MS"/>
+                    <oxy:LinearAxis Position="Left" Minimum="{Binding VmPlayController.VM_CurrentMinY}" Maximum="{Binding VmPlayController.VM_CurrentMaxY}" Title="{Binding VmJoystick.VM_GraphNameRight}" TitleFontSize = "10" TitleFont="Comic Sans MS" />
                 </oxy:Plot.Axes>
 
                 <oxy:LineSeries ItemsSource="{Binding VmJoystick.VM_PointsBottomRed}" LineStyle="None" MarkerType="Circle" MarkerSize="3" MarkerFill="Red"/>
                 <oxy:LineSeries ItemsSource="{Binding VmJoystick.VM_PointsBottomGray}" LineStyle="None" MarkerType="Circle" MarkerSize="2" MarkerFill="Black"/>
 
             </oxy:Plot>
-            <Button x:Name="btn_load_dll" Content="Load DLL " Height="51" Canvas.Left="719" Canvas.Top="300" Width="81" Click="btn_load_dll_Click" FontWeight="Bold" />
-            <ListBox x:Name="anomalies_lb" Foreground="Red" HorizontalContentAlignment="Center" ItemsSource="{Binding VmJoystick.VM_ErrorsInGraph}" Height="50" Width="178" Canvas.Left="529" Canvas.Top="299" SelectionChanged="anomalies_lb_change"/>
-            <Label Content="Anomalous time steps" HorizontalContentAlignment="Center" Foreground="Red" Canvas.Left="529" Canvas.Top="274" Width="178" Height="25" FontWeight="Bold"/>
+            <Button x:Name="btn_load_dll" Content="Load DLL " Height="30" Canvas.Left="208" Canvas.Top="469" Width="66" Click="btn_load_dll_Click" FontWeight="Bold" />
+            <ListBox x:Name="anomalies_lb" Foreground="Red" HorizontalContentAlignment="Center" ItemsSource="{Binding VmJoystick.VM_ErrorsInGraph}" Height="50" Width="178" Canvas.Left="266" Canvas.Top="411" SelectionChanged="anomalies_lb_change"/>
+            <Label Content="Anomalous time steps" HorizontalContentAlignment="Center" Foreground="Black" Canvas.Left="264" Canvas.Top="390" Width="178" Height="24" FontWeight="Bold"/>
         </Canvas>
-        <Canvas x:Name="JoystickLittleCanvas" Height="59" Width="58" Margin="647,45,115,330">
-            <Ellipse x:Name="JoystickLittleEllipse" Fill="Black" Height="59" Stroke="Black" Width="58">
-                <Ellipse.RenderTransform>
-                    <TranslateTransform x:Name="EllipseTransform" X="{Binding VmJoystick.VM_Aileron}" Y="{Binding VmJoystick.VM_Elevator}" ></TranslateTransform>
-                </Ellipse.RenderTransform>
-            </Ellipse>
-        </Canvas>
+        <Viewbox Margin="771,233,-5,-9" Grid.ColumnSpan="3">
+            <gauge:CircularGaugeControl   Radius="65"
+            ScaleRadius="45"
+            ScaleStartAngle="120"
+            ScaleSweepAngle="300"
+            PointerLength="23"
+            PointerCapRadius="25"
+             MinValue="{Binding VmStatDisplay.VM_MinYaw}"
+                MaxValue="{Binding VmStatDisplay.VM_MaxYaw}"
+            MajorDivisionsCount="10"
+            MinorDivisionsCount="5" 
+            CurrentValue="{Binding VmStatDisplay.VM_Yaw}"
+            RangeIndicatorThickness="10"
+            RangeIndicatorLightRadius="15"
+            ScaleLabelRadius="32"
+            ScaleLabelSize="30,10"
+            ScaleLabelFontSize="8"
+            ScaleLabelForeground="LightGray"
+            MajorTickSize="10,3"
+            MinorTickSize="3,1"
+            MajorTickColor="LightGray"
+            MinorTickColor="White"
+            GaugeBackgroundColor="Black"
+            PointerThickness ="10"
+            DialTextOffset="40"
+            DialText="Yaw"
+            FontFamily="Comic Sans MS"
+            DialTextColor="LightGray"
+            DialTextFontSize="20" Height="208" Width="264"/>
+        </Viewbox>
+        <Viewbox Margin="620,231,103,-16" Grid.ColumnSpan="3">
+            <gauge:CircularGaugeControl   Radius="65"
+                ScaleRadius="45"
+                ScaleStartAngle="120"
+                ScaleSweepAngle="300"
+                PointerLength="23"
+                PointerCapRadius="25"
+                MinValue="{Binding VmStatDisplay.VM_MinRoll}"
+                MaxValue="{Binding VmStatDisplay.VM_MaxRoll}"
+                MajorDivisionsCount="10"
+                MinorDivisionsCount="5"
+                CurrentValue="{Binding VmStatDisplay.VM_Roll}"
+                RangeIndicatorThickness="10"
+                RangeIndicatorLightRadius="15"
+                ScaleLabelRadius="32"
+                ScaleLabelSize="30,10"
+                ScaleLabelFontSize="8"
+                ScaleLabelForeground="LightGray"
+                MajorTickSize="10,3"
+                MinorTickSize="3,1"
+                MajorTickColor="LightGray"
+                MinorTickColor="White"
+                GaugeBackgroundColor="Black"
+                PointerThickness ="10"
+                DialTextOffset="40"
+                DialText="Roll"
+                FontFamily="Comic Sans MS"
+                DialTextColor="LightGray"
+                DialTextFontSize="20" Height="264" Width="328"/>
+        </Viewbox>
+        <Viewbox Margin="517,233,250,-9" Grid.ColumnSpan="3">
+            <gauge:CircularGaugeControl   Radius="65"
+                ScaleRadius="45"
+                ScaleStartAngle="120"
+                ScaleSweepAngle="300"
+                PointerLength="23"
+                PointerCapRadius="25"
+                MajorDivisionsCount="10"
+                MinorDivisionsCount="5"
+                MinValue="{Binding VmStatDisplay.VM_MinPitch}"
+                MaxValue="{Binding VmStatDisplay.VM_MaxPitch}"
+                CurrentValue="{Binding VmStatDisplay.VM_Pitch}"
+                RangeIndicatorThickness="10"
+                RangeIndicatorLightRadius="15"
+                ScaleLabelRadius="32"
+                ScaleLabelSize="30,10"
+                ScaleLabelFontSize="8"
+                ScaleLabelForeground="LightGray"
+                MajorTickSize="10,3"
+                MinorTickSize="3,1"
+                MajorTickColor="LightGray"
+                MinorTickColor="White"
+                GaugeBackgroundColor="Black"
+                PointerThickness ="10"
+                DialTextOffset="40"
+                DialText="Pitch"
+                FontFamily="Comic Sans MS"
+                DialTextColor="LightGray"
+                DialTextFontSize="20" Height="206" Width="276"/>
+        </Viewbox>
+        <Viewbox Margin="517,111,251,112" Grid.ColumnSpan="3">
+            <gauge:CircularGaugeControl   Radius="65"
+                ScaleRadius="45"
+                ScaleStartAngle="120"
+                ScaleSweepAngle="300"
+                PointerLength="23"
+                PointerCapRadius="25"
+                MinValue="{Binding VmStatDisplay.VM_MinAlt}"
+                MaxValue="{Binding VmStatDisplay.VM_MaxAlt}"
+                MajorDivisionsCount="10"
+                MinorDivisionsCount="5"
+                CurrentValue="{Binding VmStatDisplay.VM_Altimeter}"
+                RangeIndicatorThickness="10"
+                RangeIndicatorLightRadius="15"
+                ScaleLabelRadius="32"
+                ScaleLabelSize="30,10"
+                ScaleLabelFontSize="8"
+                ScaleLabelForeground="LightGray"
+                MajorTickSize="10,3"
+                MinorTickSize="3,1"
+                MajorTickColor="LightGray"
+                MinorTickColor="White"
+                GaugeBackgroundColor="Black"
+                PointerThickness ="10"
+                DialTextOffset="40"
+                DialText="Alt."
+                FontFamily="Comic Sans MS"
+                DialTextColor="LightGray"
+                DialTextFontSize="20" Height="201" Width="271"/>
+        </Viewbox>
+        <Label Content="Rudder" HorizontalAlignment="Left" Height="32" Margin="851,175,0,0" VerticalAlignment="Top" Width="76" FontFamily="Comic Sans MS" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="3"/>
+        <Label Content="Throttle" HorizontalAlignment="Left" Height="32" Margin="712,62,0,0" VerticalAlignment="Top" Width="81" RenderTransformOrigin="0.5,0.5" FontSize="14" FontFamily="Comic Sans MS" FontWeight="Bold" Grid.ColumnSpan="3">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90.415"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Viewbox Margin="641,111,127,112" Grid.ColumnSpan="3">
+            <gauge:CircularGaugeControl   Radius="65"
+                ScaleRadius="45"
+                ScaleStartAngle="120"
+                ScaleSweepAngle="300"
+                PointerLength="23"
+                PointerCapRadius="25"
+                MinValue="{Binding VmStatDisplay.VM_MinSpeed}"
+                MaxValue="{Binding VmStatDisplay.VM_MaxSpeed}"
+                MajorDivisionsCount="10"
+                MinorDivisionsCount="5"
+                CurrentValue="{Binding VmStatDisplay.VM_Airspeed}"
+                RangeIndicatorThickness="10"
+                RangeIndicatorLightRadius="15"
+                ScaleLabelRadius="32"
+                ScaleLabelSize="30,10"
+                ScaleLabelFontSize="8"
+                ScaleLabelForeground="LightGray"
+                MajorTickSize="10,3"
+                MinorTickSize="3,1"
+                MajorTickColor="LightGray"
+                MinorTickColor="White"
+                GaugeBackgroundColor="Black"
+                PointerThickness ="10"
+                DialTextOffset="40"
+                DialText="Speed"
+                FontFamily="Comic Sans MS"
+                DialTextColor="LightGray"
+                DialTextFontSize="20" Height="201" Width="271"/>
+        </Viewbox>
+        <Viewbox Margin="773,109,-5,113" Grid.ColumnSpan="3">
+            <gauge:CircularGaugeControl   Radius="65"
+                ScaleRadius="45"
+                ScaleStartAngle="120"
+                ScaleSweepAngle="300"
+                PointerLength="23"
+                PointerCapRadius="25"
+                MinValue="{Binding VmStatDisplay.VM_MinDeg}"
+                MaxValue="{Binding VmStatDisplay.VM_MaxDeg}"
+                MajorDivisionsCount="10"
+                MinorDivisionsCount="5"
+                CurrentValue="{Binding VmStatDisplay.VM_Heading_deg}"
+                RangeIndicatorThickness="10"
+                RangeIndicatorLightRadius="15"
+                ScaleLabelRadius="32"
+                ScaleLabelSize="30,10"
+                ScaleLabelFontSize="8"
+                ScaleLabelForeground="LightGray"
+                MajorTickSize="10,3"
+                MinorTickSize="3,1"
+                MajorTickColor="LightGray"
+                MinorTickColor="White"
+                GaugeBackgroundColor="Black"
+                PointerThickness ="10"
+                DialTextOffset="40"
+                DialText="Deg."
+                FontFamily="Comic Sans MS"
+                DialTextColor="LightGray"
+                DialTextFontSize="20" Height="201" Width="271"/>
+        </Viewbox>
+        <Label Content="Aileron" HorizontalAlignment="Left" Height="32" Margin="801,43,0,0" VerticalAlignment="Top" Width="81" RenderTransformOrigin="0.43,2.083" FontSize="14" FontFamily="Comic Sans MS" FontWeight="Bold" Grid.ColumnSpan="3">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform X="56.366" Y="-45.353"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Elevator" HorizontalAlignment="Left" Height="32" Margin="923,48,0,0" VerticalAlignment="Top" Width="105" RenderTransformOrigin="0.5,0.5" FontSize="14" FontFamily="Comic Sans MS" FontWeight="Bold" Grid.ColumnSpan="3">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+
+
 
 
     </Grid>

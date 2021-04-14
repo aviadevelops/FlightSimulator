@@ -8,11 +8,20 @@
     ".NETCoreApp,Version=v5.0": {
       "FlightSimulator/1.0.0": {
         "dependencies": {
+          "CircularGauge": "1.0.0",
           "OxyPlot.Wpf": "2.0.0",
           "AnomalyDetectorUtil": "1.0.0.0"
         },
         "runtime": {
           "FlightSimulator.dll": {}
+        }
+      },
+      "CircularGauge/1.0.0": {
+        "runtime": {
+          "Lib/Net40-Client/CircularGauge.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
@@ -718,6 +727,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "CircularGauge/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-sqpgnE4jRgvA6f7p2iW+07yMHrOJpAQRo4v01Y6DcC3Lg38BZl4YdAluSRdJfWUV7lmlp7wTIPWkBG4gcXssYg==",
+      "path": "circulargauge/1.0.0",
+      "hashPath": "circulargauge.1.0.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",

@@ -54,6 +54,8 @@ namespace FlightSimulator
             }
         }
 
+
+
         public float VM_CurrentMinY
         {
             get { return this.fsmodel.CurrentMinY; }
@@ -62,6 +64,11 @@ namespace FlightSimulator
                 this.fsmodel.CurrentMinY = value;
             }
         }
+     
+
+
+
+
 
         public PlayControllerViewModel(FlightSimulatorModel fsmodel)
         {

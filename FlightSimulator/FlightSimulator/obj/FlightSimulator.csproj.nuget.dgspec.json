@@ -44,6 +44,10 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "dependencies": {
+            "CircularGauge": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "OxyPlot.Wpf": {
               "target": "Package",
               "version": "[2.0.0, )"

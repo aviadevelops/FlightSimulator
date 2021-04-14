@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "net5.0-windows7.0": {
+      "CircularGauge/1.0.0": {
+        "type": "package",
+        "compile": {
+          "Lib/Net40-Client/CircularGauge.dll": {}
+        },
+        "runtime": {
+          "Lib/Net40-Client/CircularGauge.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -1220,6 +1229,21 @@
     }
   },
   "libraries": {
+    "CircularGauge/1.0.0": {
+      "sha512": "sqpgnE4jRgvA6f7p2iW+07yMHrOJpAQRo4v01Y6DcC3Lg38BZl4YdAluSRdJfWUV7lmlp7wTIPWkBG4gcXssYg==",
+      "type": "package",
+      "path": "circulargauge/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "CreatePackageFile.bat",
+        "Lib/Net40-Client/CircularGauge.dll",
+        "ReadMe.txt",
+        "circulargauge.1.0.0.nupkg.sha512",
+        "circulargauge.nuspec",
+        "nuget.exe"
+      ]
+    },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
@@ -4524,6 +4548,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
+      "CircularGauge >= 1.0.0",
       "OxyPlot.Wpf >= 2.0.0"
     ]
   },
@@ -4571,6 +4596,10 @@
       "net5.0-windows7.0": {
         "targetAlias": "net5.0-windows",
         "dependencies": {
+          "CircularGauge": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
           "OxyPlot.Wpf": {
             "target": "Package",
             "version": "[2.0.0, )"
@@ -4597,5 +4626,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CircularGauge 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CircularGauge",
+      "targetGraphs": [
+        "net5.0-windows7.0"
+      ]
+    }
+  ]
 }

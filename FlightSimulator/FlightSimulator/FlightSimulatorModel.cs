@@ -23,18 +23,45 @@ namespace FlightSimulator
         private string[] trainLines, testLines;
         private float currentMinX, currentMinY, currentMaxX, currentMaxY;
         private int aileronIndex = 0, elevatorIndex = 0, rudderIndex = 0, throttleIndex = 0;
-        private float altimeter = 0, aileron = 0,  airspeed = 0, elevator = 0, heading_deg = 0, pitch = 0,
+        private float altimeter = 0, aileron = 0, airspeed = 0, elevator = 0, heading_deg = 0, pitch = 0,
             roll = 0, rudder = 0, throttle = 0, yaw = 0;
+        private int maxSpeed = 0, minSpeed = 0, minDeg = 0, maxDeg=0, minYaw=0, maxYaw=0, minPitch=0, maxPitch=0, maxRoll=0,minRoll=0, minAlt=0,maxAlt=0;
         private int[] displayIndexes = { 0, 0};
         private string trainCSVFile = "", testCSVFile = "";
         private string playBackPath;
-        private string graphNameLeft = "Graph";
-        private string graphNameRight = "Graph";
-        private string graphNameBottom = "Graph";
+        private string graphNameLeft = "Feature";
+        private string graphNameRight = "Correlated Feature";
+        private string graphNameBottom = "Inspection View";
         public float BigEllipseCanvasWidth;
         public float BigEllipseCanvasHeight;
         public float LittleEllipseCanvasWidth;
         public float LittleEllipseCanvasHeight;
+
+        public void SetGaugesMinMax()
+        {
+            if (testLines == null)
+            {
+                return;
+            }
+            MaxAlt = (int)this.findMax(testLines,statIndecies["altimeter"]);
+            MinAlt = (int)this.findMin(testLines, statIndecies["altimeter"]);
+
+            MaxSpeed = (int)this.findMax(testLines, statIndecies["airspeed"]);
+            MinSpeed = (int)this.findMin(testLines, statIndecies["airspeed"]);
+
+            MaxDeg = (int)this.findMax(testLines, statIndecies["heading_deg"]);
+            MinDeg = (int)this.findMin(testLines, statIndecies["heading_deg"]);
+
+            MaxPitch = (int)this.findMax(testLines, statIndecies["pitch"]);
+            MinPitch = (int)this.findMin(testLines, statIndecies["pitch"]);
+
+            MaxRoll = (int)this.findMax(testLines, statIndecies["roll"]);
+            MinRoll = (int)this.findMin(testLines, statIndecies["roll"]);
+
+            MaxYaw = (int)this.findMax(testLines, statIndecies["yaw"]);
+            MinYaw = (int)this.findMin(testLines, statIndecies["yaw"]);
+        }
+
         private TcpClient client;
         private NetworkStream stream;
         private TimeSpan currentTimeSpan;
@@ -59,6 +86,133 @@ namespace FlightSimulator
                 notifyPropertyChanged("CurrentMaxX");
             }
         }
+
+        public int MaxSpeed
+        {
+            get { return this.maxSpeed; }
+            set
+            {
+                this.maxSpeed = value;
+                notifyPropertyChanged("MaxSpeed");
+            }
+        }
+
+        public int MinSpeed
+        {
+            get { return this.minSpeed; }
+            set
+            {
+                this.minSpeed = value;
+                notifyPropertyChanged("MinSpeed");
+            }
+        }
+
+
+
+        public int MaxYaw
+        {
+            get { return this.maxYaw; }
+            set
+            {
+                this.maxYaw = value;
+                notifyPropertyChanged("MaxYaw");
+            }
+        }
+
+        public int MinYaw
+        {
+            get { return this.minYaw; }
+            set
+            {
+                this.minYaw = value;
+                notifyPropertyChanged("MinYaw");
+            }
+        }
+
+        public int MaxRoll
+        {
+            get { return this.maxRoll; }
+            set
+            {
+                this.maxRoll = value;
+                notifyPropertyChanged("MaxRoll");
+            }
+        }
+
+        public int MinRoll
+        {
+            get { return this.minRoll; }
+            set
+            {
+                this.minRoll = value;
+                notifyPropertyChanged("MinRoll");
+            }
+        }
+
+        public int MaxPitch
+        {
+            get { return this.maxPitch; }
+            set
+            {
+                this.maxPitch = value;
+                notifyPropertyChanged("MaxPitch");
+            }
+        }
+
+        public int MinPitch
+        {
+            get { return this.minPitch; }
+            set
+            {
+                this.minPitch = value;
+                notifyPropertyChanged("MinPitch");
+            }
+        }
+
+
+        public int MaxAlt
+        {
+            get { return this.maxAlt; }
+            set
+            {
+                this.maxAlt = value;
+                notifyPropertyChanged("MaxAlt");
+            }
+        }
+
+        public int MinAlt
+        {
+            get { return this.minAlt; }
+            set
+            {
+                this.minAlt = value;
+                notifyPropertyChanged("MinAlt");
+            }
+        }
+
+
+        public int MaxDeg
+        {
+            get { return this.maxDeg; }
+            set
+            {
+                this.maxDeg = value;
+                notifyPropertyChanged("MaxDeg");
+            }
+        }
+
+        public int MinDeg
+        {
+            get { return this.minDeg; }
+            set
+            {
+                this.minDeg = value;
+                notifyPropertyChanged("MinDeg");
+            }
+        }
+
+
+
 
         public float CurrentMinX
         {
@@ -92,12 +246,12 @@ namespace FlightSimulator
 
         public void updateAxes()
         {
-            float minX = this.findMin(this.trainLines, this.displayIndexes[0]), minY = this.findMin(this.trainLines, this.displayIndexes[1]), maxX = this.findMax(this.trainLines, this.displayIndexes[0]), maxY = this.findMax(this.trainLines, this.displayIndexes[1]);
+            float minX = this.findMin(this.testLines, this.displayIndexes[0]), minY = this.findMin(this.testLines, this.displayIndexes[1]), maxX = this.findMax(this.testLines, this.displayIndexes[0]), maxY = this.findMax(this.testLines, this.displayIndexes[1]);
             float marginX = (float)((maxX - minX) * 0.75), marginY = (float)((maxY - minY) * 0.75);
-            this.CurrentMaxX = this.findMax(this.trainLines,this.displayIndexes[0]) + marginX;
-            this.CurrentMinX = this.findMin(this.trainLines, this.displayIndexes[0]) - marginX;
-            this.CurrentMaxY = this.findMax(this.trainLines, this.displayIndexes[1]) + marginY;
-            this.CurrentMinY = this.findMin(this.trainLines, this.displayIndexes[1]) - marginY;
+            this.CurrentMaxX = this.findMax(this.testLines,this.displayIndexes[0]) + marginX;
+            this.CurrentMinX = this.findMin(this.testLines, this.displayIndexes[0]) - marginX;
+            this.CurrentMaxY = this.findMax(this.testLines, this.displayIndexes[1]) + marginY;
+            this.CurrentMinY = this.findMin(this.testLines, this.displayIndexes[1]) - marginY;
 
         }
 
@@ -546,10 +700,11 @@ namespace FlightSimulator
   
             while (true)
             {
-                if (isPaused)
+                if (isPaused || CurrentTimeStep >= max)
                     continue;
                 for (; CurrentTimeStep < max; CurrentTimeStep++)
                 {
+
                     CurrentTimeSpan = TimeSpan.FromSeconds(CurrentTimeStep / 10);
 
                     if (isPaused || isDone)
@@ -563,20 +718,28 @@ namespace FlightSimulator
                             displayBottomGrayPoints();
                     }
                         
-                    changeStats(lines[currentTimeStep]);
+                    changeStats(lines[CurrentTimeStep]);
 
+                   
                     msg = lines[CurrentTimeStep] + "\n";
                     byte[] sendData = Encoding.ASCII.GetBytes(msg);
-                    stream.Write(sendData, 0, sendData.Length);
-                    Console.WriteLine(msg);
+                    try
+                    {
+                        stream.Write(sendData, 0, sendData.Length);
+                    }
+                    catch (Exception) {
+                        terminateConnection();
+                    }
+                
+                    //Console.WriteLine(msg);
                     Thread.Sleep(sleepFor);
                 }
                 if (isDone)
                     break;
-
-                CurrentTimeStep--;
+                if (currentTimeStep > max)
+                    CurrentTimeStep = max;
                 displayBottomGrayPoints();
-                CurrentTimeStep++;
+                //CurrentTimeStep++;
             }
         }
 
@@ -584,7 +747,7 @@ namespace FlightSimulator
         {
             isDone = true;
             stream.Close();
-            client.Close();
+            client.Close();            
         }
 
 
