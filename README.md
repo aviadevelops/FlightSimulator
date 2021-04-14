@@ -15,6 +15,7 @@ This is walkthrough of a desktop application for detection of anomalies in vario
 - [x] Use a minimum enclosing circle anomaly detection algorithm, that displays the minimum enclosing circle of the chosen feature and its most correlated feature.
 - [x] Points indicating an anomaly will be painted red, while points belonging to the last 30 seconds of the flight will appear in gray in real-time.
 - [x] Display a list of anomalous times, and jump to each anomaly as you see fit to inspect it more efficently.
+- [x] Further documentation in the code.
 
 ![Image of Minimal Enclosing Circle](https://github.com/aviadevelops/FlightSimulator/blob/main/min%20circle.PNG)
 
