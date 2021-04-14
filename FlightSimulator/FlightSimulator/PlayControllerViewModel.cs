@@ -9,7 +9,7 @@ namespace FlightSimulator
     public class PlayControllerViewModel : INotifyPropertyChanged
     {
         bool hasStarted = false;
-        bool isDLLLoaded = false;
+        //bool isDLLLoaded = false;
         private FlightSimulatorModel fsmodel;
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -82,11 +82,12 @@ namespace FlightSimulator
 
         public int get_csv_length()
         {
-            if (this.fsmodel.getLines(true) == null)
+            if (this.fsmodel.getLines(true) == null && fsmodel.getLines(false) == null)
             {
                 return 0;
             }
-            return this.fsmodel.getLines(true).Length;
+            else if (fsmodel.getLines(true) == null) return fsmodel.getLines(false).Length;
+            else return this.fsmodel.getLines(true).Length;
         }
 
         public void load_csv(bool isTrain)
@@ -113,11 +114,11 @@ namespace FlightSimulator
                 MessageBox.Show("Successfuly learned normal attributes. You can now load a flight CSV file to inspect.");
                 return;
             }
-            if (!isTrain && !success)
-            {
-                MessageBox.Show("Please load a learn normal CSV file before you load your flight CSV!");
-                return;
-            }
+            //if (!isTrain && !success)
+            //{
+            //    MessageBox.Show("Please load a learn normal CSV file before you load your flight CSV!");
+            //    return;
+            //}
             if (!success)
             {
                 MessageBox.Show("An error has occured, please try again.");
@@ -129,28 +130,36 @@ namespace FlightSimulator
 
         public void load_dll()
         {
-            isDLLLoaded = false;
-            string path = null;
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "dll files (*.dll)|*.dll";
-            if (openFileDialog.ShowDialog() == true)
-                path = openFileDialog.FileName;
-            this.fsmodel.load_dll(path);
-            isDLLLoaded = true;
+            try
+            {
+                //isDLLLoaded = false;
+                string path = null;
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "dll files (*.dll)|*.dll";
+                if (openFileDialog.ShowDialog() == true)
+                    path = openFileDialog.FileName;
+                if (path == null)
+                {
+                    return;
+                }
+                this.fsmodel.load_dll(path);
+                MessageBox.Show("Loaded dll file.");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("An error has occured. Please try again.");
+            }
+
+            //isDLLLoaded = true;
         }
 
         public void play()
         {
-            if (!isDLLLoaded)
-            {
-                MessageBox.Show("Please load DLL first");
-                return;
-            }
-            if (this.fsmodel.getLines(true) == null)
-            {
-                MessageBox.Show("Please open a non empty CSV");
-                return;
-            }
+            //if (this.fsmodel.getLines(true) == null)
+            //{
+            //    MessageBox.Show("Please open a non empty CSV");
+            //    return;
+            //}
             if (this.fsmodel.getLines(false) == null)
             {
                 string text = "Please open a test CSV";
@@ -219,6 +228,12 @@ namespace FlightSimulator
         public void displayGraph(string clicked)
         {
             fsmodel.setGraphDisplayIndex(clicked); 
+        }
+
+
+        public int getCurrentPropertyIndex()
+        {
+            return fsmodel.getCurrentPropertyIndex();
         }
     }
 }

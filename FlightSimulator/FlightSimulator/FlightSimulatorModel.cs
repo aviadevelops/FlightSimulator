@@ -141,6 +141,24 @@ namespace FlightSimulator
             System.Reflection.Assembly dllAssembly = System.Reflection.Assembly.LoadFile(dllFile.FullName);
             Object dllInstance = (Object)dllAssembly.CreateInstance(filename);
             dll = dllInstance;
+            tryTrain();
+            tryTest();
+        }
+
+        public void tryTrain()
+        {
+            if (dll!=null && trainLines != null)
+            {
+                train();
+            }
+        }
+
+        public void tryTest()
+        {
+            if (dll != null && testLines != null)
+            {
+                test();
+            }
         }
 
         public IList<DataPoint> PointsBottomGray
@@ -204,10 +222,21 @@ namespace FlightSimulator
 
         public OxyPlot.Wpf.Annotation returnShapeAnnotation()
         {
-            object[] argslearn = new object[] {(object)displayIndexes[0]};
-            var s = (OxyPlot.Wpf.Annotation)dll.GetType().GetMethod("returnShape").Invoke(dll, argslearn); 
-    
-            return s;
+            if (dll == null)
+            {
+                return null;
+            }
+            try
+            {
+                object[] argslearn = new object[] { (object)displayIndexes[0] };
+                var s = (OxyPlot.Wpf.Annotation)dll.GetType().GetMethod("returnShape").Invoke(dll, argslearn);
+
+                return s;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public bool loadCsv(string path, bool isTrain)
@@ -218,18 +247,20 @@ namespace FlightSimulator
                 {
                     trainCSVFile = path;
                     trainLines = File.ReadAllLines(path);
-                    train();
+                    tryTrain();
+                    //train();
 
                 }
                 else
                 {
-                    if (trainCSVFile == "")
-                        return false;
+                    //if (trainCSVFile == "")
+                    //    return false;
                     isDone = true;
                     testLines = File.ReadAllLines(path);
                     CurrentTimeStep = 0;
                     initIndex();
-                    test();
+                    tryTest();
+                    //test();
                 }
                 return true;
             }
@@ -637,6 +668,11 @@ namespace FlightSimulator
             return count;
         }
 
+
+        public int getCurrentPropertyIndex() {
+            return displayIndexes[0];
+        }
+
         public void setGraphDisplayIndex(string line)
         {
             PointsLeft = new List<DataPoint>();
@@ -644,6 +680,10 @@ namespace FlightSimulator
             this.displayIndexes[0] = getIndexFromListBox(line);
             if (trainLines != null)
             {
+                if (dll == null)
+                {
+                    return;
+                }
                 findMaxCorrelatedFeature(line);
                 string graphName = (string)dll.GetType().GetMethod("getGraphName").Invoke(dll, null);
                 if (GraphNameRight == "CF Unavailable")
