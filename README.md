@@ -22,7 +22,7 @@ This is walkthrough of a desktop application for detection of anomalies in vario
 ![Image of Linear Regression](https://github.com/aviadevelops/FlightSimulator/blob/main/linear%20reg.PNG)
 
 ### Folder Structure
-.
+```
 ├── FlightSimulator
 │   ├── Files - Helper files like train flight and test flight as well as playback-small.xml which is required for instalation.
 │   ├── FlightSimulator - contains the project's code files
@@ -33,12 +33,8 @@ This is walkthrough of a desktop application for detection of anomalies in vario
 │   │   ├── Images - contains the images displayed during the execution of the application.
 │   │   ├── obj - object file and nugets.
 │   ├── FlightSimulator.sln - the solution that is required to run.
-├── plugins - contains the minimal circle dll and linear regression dll files.
-
-├── test                    # Test files (alternatively `spec` or `tests`)
-│   ├── benchmarks          # Load and stress tests
-│   ├── integration         # End-to-end, integration tests (alternatively `e2e`)
-│   └── unit                # Unit tests
+└── plugins - contains the minimal circle dll and linear regression dll files.
+```
 
 ### Required installations
 * Microsoft .NET 5.0.104 (x64)
