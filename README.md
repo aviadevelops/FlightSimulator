@@ -35,6 +35,11 @@ This is walkthrough of a desktop application for detection of anomalies in vario
 │   ├── FlightSimulator.sln - the solution that is required to run.
 ├── plugins - contains the minimal circle dll and linear regression dll files.
 
+├── test                    # Test files (alternatively `spec` or `tests`)
+│   ├── benchmarks          # Load and stress tests
+│   ├── integration         # End-to-end, integration tests (alternatively `e2e`)
+│   └── unit                # Unit tests
+
 ### Required installations
 * Microsoft .NET 5.0.104 (x64)
 * FlightFear 2020.3.8 (For windows 7,8,10)
