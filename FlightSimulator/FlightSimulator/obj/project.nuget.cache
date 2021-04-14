@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JzXLyyC/A+tB78hwNymNHvI7qH95YtICveqJnKUivdjsdBiPQBT6vtB9Fleq9ghGEcPGAjx+M/w9V7lZGaai/A==",
+  "dgSpecHash": "cbdGjZZB3r1HNk/xsHpHivcYUCfT33qPOs+3s8LSehQFmPjZilZ+M4z4P2rYwU1qyldAHdNlXSyRPD4tT6S32Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lee\\OneDrive\\מסמכים\\Projects\\Visual Studio Projects\\DynamicCOdeNotWorking\\ARTHURISGAY\\FlightSimulator\\FlightSimulator.csproj",
+  "projectFilePath": "C:\\Users\\Lee\\OneDrive\\מסמכים\\Projects\\Visual Studio Projects\\FlightSimulator\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lee\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Lee\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

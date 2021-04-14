@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lee\\OneDrive\\מסמכים\\Projects\\Visual Studio Projects\\DynamicCOdeNotWorking\\ARTHURISGAY\\FlightSimulator\\FlightSimulator.csproj": {}
+    "C:\\Users\\Lee\\OneDrive\\מסמכים\\Projects\\Visual Studio Projects\\FlightSimulator\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lee\\OneDrive\\מסמכים\\Projects\\Visual Studio Projects\\DynamicCOdeNotWorking\\ARTHURISGAY\\FlightSimulator\\FlightSimulator.csproj": {
+    "C:\\Users\\Lee\\OneDrive\\מסמכים\\Projects\\Visual Studio Projects\\FlightSimulator\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lee\\OneDrive\\מסמכים\\Projects\\Visual Studio Projects\\DynamicCOdeNotWorking\\ARTHURISGAY\\FlightSimulator\\FlightSimulator.csproj",
+        "projectUniqueName": "C:\\Users\\Lee\\OneDrive\\מסמכים\\Projects\\Visual Studio Projects\\FlightSimulator\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj",
         "projectName": "FlightSimulator",
-        "projectPath": "C:\\Users\\Lee\\OneDrive\\מסמכים\\Projects\\Visual Studio Projects\\DynamicCOdeNotWorking\\ARTHURISGAY\\FlightSimulator\\FlightSimulator.csproj",
+        "projectPath": "C:\\Users\\Lee\\OneDrive\\מסמכים\\Projects\\Visual Studio Projects\\FlightSimulator\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj",
         "packagesPath": "C:\\Users\\Lee\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lee\\OneDrive\\מסמכים\\Projects\\Visual Studio Projects\\DynamicCOdeNotWorking\\ARTHURISGAY\\FlightSimulator\\obj\\",
+        "outputPath": "C:\\Users\\Lee\\OneDrive\\מסמכים\\Projects\\Visual Studio Projects\\FlightSimulator\\FlightSimulator\\FlightSimulator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

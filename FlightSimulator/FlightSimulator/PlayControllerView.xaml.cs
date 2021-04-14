@@ -48,12 +48,16 @@ namespace FlightSimulator
         private void btn_open_train_click(object sender, RoutedEventArgs e)
         {
             playVM.load_csv(true);
+            anomaliesGraph.Annotations.Clear();
             playVM.VM_CurrentTimeStep = 0;
+            playVM.pause();
+
         }
 
         private void btn_open_test_click(object sender, RoutedEventArgs e)
         {
             playVM.load_csv(false);
+            anomaliesGraph.Annotations.Clear();
             playVM.VM_CurrentTimeStep = 0;
             setValues();
         }
@@ -90,6 +94,7 @@ namespace FlightSimulator
                     playVM.play();
                     return;
                 }
+                anomaliesGraph.Annotations.Clear();
                 anomaliesGraph.Annotations.Add(shape);
                 anomaliesGraph.InvalidatePlot(true);
             }

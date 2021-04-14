@@ -142,7 +142,7 @@ namespace FlightSimulator
             Object dllInstance = (Object)dllAssembly.CreateInstance(filename);
             dll = dllInstance;
             tryTrain();
-            tryTest();
+            //tryTest();
         }
 
         public void tryTrain()
@@ -243,10 +243,12 @@ namespace FlightSimulator
         {
             try
             {
+                clearPoints();
                 if (isTrain)
                 {
                     trainCSVFile = path;
                     trainLines = File.ReadAllLines(path);
+                    //CurrentTimeStep = 0;
                     tryTrain();
                     //train();
 
@@ -262,6 +264,7 @@ namespace FlightSimulator
                     tryTest();
                     //test();
                 }
+                
                 return true;
             }
             catch (Exception)
@@ -543,7 +546,9 @@ namespace FlightSimulator
   
             while (true)
             {
-                for (; CurrentTimeStep <= max; CurrentTimeStep++)
+                if (isPaused)
+                    continue;
+                for (; CurrentTimeStep < max; CurrentTimeStep++)
                 {
                     CurrentTimeSpan = TimeSpan.FromSeconds(CurrentTimeStep / 10);
 
@@ -775,6 +780,18 @@ namespace FlightSimulator
             object[] argslearn = new object[] { (object)trainLines };
             maxCorralatedFreatures = (List<Tuple<int, int>>)dll.GetType().GetMethod("learnNormal").Invoke(dll, argslearn);
             //maxCorralatedFreatures = SimpleAnomalyDetector.learnNormal(trainLines);
+
+            tryTest();
+        }
+        
+        public void clearPoints()
+        {
+
+        PointsBottomRed = new List<DataPoint>();
+        PointsBottomGray = new List<DataPoint>();
+            //currentErrors = new List<TimeSpan>();
+            //errorTimes = new Dictionary<int, List<int>>();
+
         }
 
         public void test()

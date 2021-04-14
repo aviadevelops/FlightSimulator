@@ -318,7 +318,7 @@ namespace FlightSimulator {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/FlightSimulator;V1.0.0.0;component/playcontrollerview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/FlightSimulator;component/playcontrollerview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\PlayControllerView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
