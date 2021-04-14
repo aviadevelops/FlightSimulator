@@ -1,25 +1,22 @@
 # FlightSimulator
 
 ### Summary
-This is a desktop app for anomalies detection. We display an animation of flight through a flight simulator called FlightGear.
-During the project we implement MVVM architecture, and we using .Net Framework called WPF.
-We actually implement a TCP client which sends data in real-time to the FlightGear. 
-The app supports real-time updates of the flight and updates on anomaly detections.
+This is walkthrough of a desktop application for detection of anomalies in various flights. It displays an animation of a flight utilizing a flight simulator called FlightGear. During the project we implement the MVVM architecture, while using the .Net Framework called WPF. The application implements a TCP client which sends data to the FlightGear simulator server. The flight inspector supports real-time updates of anomalies through graphs and animations that represent the current state of the flight.
 
 ### App Features
-- [x] Jump quickly for every selected moment during the flight, by moving the slider back and forward.
-- [x] Change the flight speed as desired.
-- [x] joystick animation.
-- [x] Real-time update flight statistics such as altimeter, airspeed, heading_deg, pitch, roll ,yaw.
-- [x] Select a flight feature for research
-- [x] You will see his real-time updated graph and a real-time updated graph of his most correlated feature.
-- [x] Choose an anomaly detection algorithm
-- [x] Load a linear regression algorithm, and you will see a the regression line of the chosen feature and his most correlated feature.
-- [x] Load a minimum enclosing circle algorithm, and you will see him.
-- [x] In the graph below you will see gray points belonging to the last 30 seconds of the flight.
-- [x] Points indicating an anomaly will be painted red.
+- [x] Jump to every selected moment during the flight, by moving the slider back and forth.
+- [x] Change the flight speed as desired or temporarily pause it.
+- [x] Joystick animation that represent real time visualization of the plane's rudder.
+- [x] Real-time update of flight statistics such as altimeter, airspeed, heading degree, pitch, roll and yaw.
+- [x] Select a flight feature to inspect it's current state.
+- [x] Display of the current chosen feature's graph and it's most correlated counterpart, both of which update in real-time.
+- [x] Loading an anomaly detection algorithm to your desire in runtime.
+- [x] Use a linear regression anomaly detection algorithm, that displays the regression line of the chosen feature and its most correlated feature.
+- [x] Use a minimum enclosing circle anomaly detection algorithm, that displays the minimum enclosing circle of the chosen feature and its most correlated feature.
+- [x] Points indicating an anomaly will be painted red, while points belonging to the last 30 seconds of the flight will appear in gray in real-time.
+- [x] Display a list of anomalous times, and jump to each anomaly as you see fit to inspect it more efficently.
 
-![Image of Min Circle](https://github.com/aviadevelops/FlightSimulator/blob/main/min%20circle.PNG)
+![Image of Minimal Enclosing Circle](https://github.com/aviadevelops/FlightSimulator/blob/main/min%20circle.PNG)
 
 ![Image of Linear Regression](https://github.com/aviadevelops/FlightSimulator/blob/main/linear%20reg.PNG)
 
@@ -33,19 +30,19 @@ The app supports real-time updates of the flight and updates on anomaly detectio
 
 ### Compiling and Running
 1. Download this repository.
-2. Make sure the settings file ("playback_small.xml") is located in the correct directory (flightGear/data/protocols).
+2. Make sure the settings file ("playback_small.xml") is located in the proper directory (flightGear/data/protocols).
 3. Open "FlightSimulator.sln" in Visual studio and build the project.
-4. Run the app and you will see the home screen - load the .exe file which propably locate at FlightSimulator/bin/Debug/FlightSimulator.exe
-5. Load the chosen anomaly detection algorithm, for exmaple a Linear regression or a minimum enclosing circle. This algorithm must be a .dll file!
-6. Make sure that the uploaded algorithm has a learn-normal() + detect() + returnShape() + getGraphName() methods.
+4. Open the FlightSimulator.exe file which is located at FlightSimulator/bin/Debug folder to see the home screen. 
+5. Load the chosen anomaly detection algorithm's dll, for exmaple a Linear Regression dll or a Minimum Enclosing Circle dll.
+6. Make sure that the uploaded algorithm has a learn-normal(), detect(), returnShape() and getGraphName() methods.
 7. Make sure that the .dll file name is exactly the same as the class name of the uploaded algorithm.
-9. Load the csv train file.
-10. Load the csv test file.
-11. Press the play button .
+8. Load the csv train file.
+9. Load the csv test file.
+10. Press the play button and enjoy the flight!
 
 ### Additional Links
-* [UML diagram](UML.pdf)
-* [tutorial video](http://google.com) 
+* [UML Diagram](UML.pdf)
+* [Walkthrough video](https://youtu.be/UIf6bcRP8hU) 
 
 
 
