@@ -148,6 +148,16 @@ namespace FlightSimulator
         private void btn_load_dll_Click(object sender, RoutedEventArgs e)
         {
             playVM.load_dll();
+            int index = playVM.getCurrentPropertyIndex();
+            playVM.displayGraph(parameterList.Items[playVM.getCurrentPropertyIndex()].ToString());
+            anomaliesGraph.Annotations.Clear();
+            OxyPlot.Wpf.Annotation shape = playVM.calculateShape();
+            this.anomaliesGraph.ResetAllAxes();
+            //this.playVM.updateAxes();
+            if (shape == null)
+                return;
+            anomaliesGraph.Annotations.Add(shape);
+            anomaliesGraph.InvalidatePlot(true);
         }
     }
 }
