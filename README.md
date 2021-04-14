@@ -22,6 +22,7 @@ This is walkthrough of a desktop application for detection of anomalies in vario
 ![Image of Linear Regression](https://github.com/aviadevelops/FlightSimulator/blob/main/linear%20reg.PNG)
 
 ### Folder Structure
+.
 ├── FlightSimulator
 │   ├── Files - Helper files like train flight and test flight as well as playback-small.xml which is required for instalation.
 │   ├── FlightSimulator - contains the project's code files
