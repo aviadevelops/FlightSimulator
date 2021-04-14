@@ -13,9 +13,9 @@ The app supports real-time updates of the flight and updates on anomaly detectio
 - [x] Real-time update flight statistics such as altimeter, airspeed, heading_deg, pitch, roll ,yaw.
 - [x] Select a flight feature for research
 - [x] You will see his real-time updated graph and a real-time updated graph of his most correlated feature.
-- [x] Chhose an anomaly detection algorithm
-- [x] Loading a linear regression algorithm you will see a the regression line of the chosen feature and his most correlated feature.
-- [x] Loading a minimum enclosing circle algorithm you will him.
+- [x] Choose an anomaly detection algorithm
+- [x] Load a linear regression algorithm, and you will see a the regression line of the chosen feature and his most correlated feature.
+- [x] Load a minimum enclosing circle algorithm, and you will see him.
 - [x] In the graph below you will see gray points belonging to the last 30 seconds of the flight.
 - [x] Points indicating an anomaly will be painted red.
 
@@ -28,14 +28,16 @@ The app supports real-time updates of the flight and updates on anomaly detectio
 * Visual Studio 2019
 
 ### Compiling and Running
-1. Download this repository
+1. Download this repository.
 2. Make sure the settings file ("playback_small.xml") is located in the correct directory (flightGear/data/protocols).
 3. Open "FlightSimulator.sln" in Visual studio and build the project.
 4. Run the app and you will see the home screen - load the .exe file which propably locate at FlightSimulator/bin/Debug/FlightSimulator.exe
 5. Load the chosen anomaly detection algorithm, for exmaple a Linear regression or a minimum enclosing circle. This algorithm must be a .dll file!
-6. Load the csv tain file
-7. Load the test csv file
-8. Press the play button 
+6. Make sure that the uploaded algorithm has a learn-normal() + detect() + returnShape() + getGraphName() methods.
+7. Make sure that the .dll file name is exactly the same as the class name of the uploaded algorithm.
+9. Load the csv train file.
+10. Load the csv test file.
+11. Press the play button .
 
 ### Additional Links
 * [UML diagram](UML.pdf)
