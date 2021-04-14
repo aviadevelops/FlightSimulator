@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:FlightSimulator"
            xmlns:gauge="clr-namespace:CircularGauge;assembly=CircularGauge"
         mc:Ignorable="d"
-        Title="Flight Simulator" Height="585" Width="1000" Closing="window_flightgear_closing">
+        Title="Flight Inspection" Height="585" Width="1000" Closing="window_flightgear_closing">
     <Window.Background>
         <ImageBrush ImageSource="\Images\plane_bg.jpg"></ImageBrush>
     </Window.Background>
