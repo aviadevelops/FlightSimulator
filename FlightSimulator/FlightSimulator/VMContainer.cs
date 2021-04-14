@@ -1,4 +1,9 @@
-﻿
+﻿/*
+ * The VMContainer class contain as a properties all the view model of the project
+ * such as PlayControllerViewModel, JoystickControllerViewModel,StatDisplayViewModel. 
+ * And as a view model he also need to contain the FlightSimulatorModel. 
+ * In the constructor we create a new model and call connect() and send this model to the view model.
+ */
 namespace FlightSimulator
 {
     public class VMContainer

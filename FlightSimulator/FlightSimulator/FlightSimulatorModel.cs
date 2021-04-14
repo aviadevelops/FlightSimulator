@@ -10,6 +10,19 @@ using System.Text;
 using System.Threading;
 using System.Xml;
 
+
+
+/*
+ * FlightSimulatorModel is the main model of the project. In this class we create a tcp client with the connect() method
+ * and send data to the FlightGear in sendInLoop() method. In sendInLoop() we send the csv lines at certain intervals to the FG.
+ * We also have here, a train() which responsible for calling the learn normal method (from the dll), and 
+ * we have the test() method which responsible for calling the detect method (from the dll)
+ * we store the properties of the project here and for each property call the notifyPropertyChanged method. 
+ * we also have here some another functions that help us to parse the xml files, and load the dll.
+ * The property pointsLeft is used for the graph of the feature the we want to research, and pointsRight is for his most 
+ * CorralatedFreatures. pointsBottomGray is for the graph below - that represents the points of the last 30 seconds of the flight.
+ * pointsBottomRed represents the anomaly detection points.
+ */
 namespace FlightSimulator
 {
     public class FlightSimulatorModel : INotifyPropertyChanged

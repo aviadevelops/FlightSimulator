@@ -4553,24 +4553,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lee\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Arthur\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lee\\OneDrive\\מסמכים\\Projects\\Visual Studio Projects\\FlightSimulator\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj",
+      "projectUniqueName": "C:\\Users\\Arthur\\Desktop\\FlightSimulator-main\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj",
       "projectName": "FlightSimulator",
-      "projectPath": "C:\\Users\\Lee\\OneDrive\\מסמכים\\Projects\\Visual Studio Projects\\FlightSimulator\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj",
-      "packagesPath": "C:\\Users\\Lee\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lee\\OneDrive\\מסמכים\\Projects\\Visual Studio Projects\\FlightSimulator\\FlightSimulator\\FlightSimulator\\obj\\",
+      "projectPath": "C:\\Users\\Arthur\\Desktop\\FlightSimulator-main\\FlightSimulator\\FlightSimulator\\FlightSimulator.csproj",
+      "packagesPath": "C:\\Users\\Arthur\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Arthur\\Desktop\\FlightSimulator-main\\FlightSimulator\\FlightSimulator\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Lee\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Arthur\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4615,6 +4610,20 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[5.0.0, 5.0.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -4623,7 +4632,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   },

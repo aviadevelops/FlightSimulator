@@ -4,6 +4,16 @@ using System.ComponentModel;
 using System.Threading;
 using System.Windows;
 
+
+/*
+ * PlayControllerViewModel responsible for controlling the play of the flight (User story 2). 
+ * we also check that the user load a dll file and after that a train file and finally a test file.
+ * As a view model he also need to contain the FlightSimulatorModel, and a view model this class need 
+ * to implement INotifyPropertyChanged, and have an event PropertyChangedEventHandler 
+ * PropertyChanged, and notifyPropertyChanged function.
+ */
+
+
 namespace FlightSimulator 
 {
     public class PlayControllerViewModel : INotifyPropertyChanged

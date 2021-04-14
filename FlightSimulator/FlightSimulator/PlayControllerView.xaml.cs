@@ -4,6 +4,16 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 
+
+/*
+ * In PlaybackScreen class we can find buttons for:
+ * load a csv train  + load csv test file, play button, pause button, back button, forward button. we can also the the 
+ * speed of the flight with the text box change speed. We can jump quickly for every selected moment during the flight,
+ * by moving the slider back and forward. We give the slider his max and min value. 
+ * As a view this class must contain the appropriate view model.
+ */
+
+
 namespace FlightSimulator
 {
 

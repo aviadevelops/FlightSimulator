@@ -3,6 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
+
+/* This class is responsible for display the joystick animation. We have a big ellipse and inside a little ellipse.
+ * we check that the liitle ellipse stay inside the big ellipse. The rudder, throttle, elevator and aileron 
+ * move according to flight state. This class also contain some info about the graphs. 
+ * As a view model he also need to contain the FlightSimulatorModel, and a view model this class need 
+ * to implement INotifyPropertyChanged, and have an event PropertyChangedEventHandler 
+ * PropertyChanged, and notifyPropertyChanged function.
+ */
 namespace FlightSimulator
 {
     public class JoystickControllerViewModel : INotifyPropertyChanged

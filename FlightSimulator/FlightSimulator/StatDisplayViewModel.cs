@@ -1,6 +1,13 @@
 ﻿using System;
 using System.ComponentModel;
 
+/*
+ * StatDisplayViewModel used for display the Stats of the flight.
+ * This Stats update in real-time. As a view model this class need to implement INotifyPropertyChanged, and have
+ * an event PropertyChangedEventHandler PropertyChanged, and notifyPropertyChanged function.
+ */
+
+
 namespace FlightSimulator
 {
     public class StatDisplayViewModel : INotifyPropertyChanged

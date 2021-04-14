@@ -3,6 +3,13 @@ using System;
 using System.Diagnostics;
 using System.Windows;
 
+/*
+ * This is the home screen page. We run the app and we will see the 
+ * home screen - than load the .exe file which propably locate at FlightSimulator/bin/Debug/FlightSimulator.exe
+ * We create a new  Process objProcess and place ("playback_small.xml") in the appropriate place in the FG.
+ */
+
+
 namespace FlightSimulator
 {
     /// <summary>
